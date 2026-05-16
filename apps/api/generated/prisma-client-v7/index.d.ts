@@ -504,6 +504,11 @@ export type MatchingSetBuyPlanLine = $Result.DefaultSelection<Prisma.$MatchingSe
  */
 export type SkuActivity = $Result.DefaultSelection<Prisma.$SkuActivityPayload>
 /**
+ * Model SkuReplacement
+ * 
+ */
+export type SkuReplacement = $Result.DefaultSelection<Prisma.$SkuReplacementPayload>
+/**
  * Model SkuSize
  * Per-SKU size-label rows. Each SKU carries an ordered list of the sizes it
  * is sold in (e.g. "7", "7.5", "8", ...). `sort_order` controls display on
@@ -2195,6 +2200,16 @@ export class PrismaClient<
   get skuActivity(): Prisma.SkuActivityDelegate<ExtArgs>;
 
   /**
+   * `prisma.skuReplacement`: Exposes CRUD operations for the **SkuReplacement** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more SkuReplacements
+    * const skuReplacements = await prisma.skuReplacement.findMany()
+    * ```
+    */
+  get skuReplacement(): Prisma.SkuReplacementDelegate<ExtArgs>;
+
+  /**
    * `prisma.skuSize`: Exposes CRUD operations for the **SkuSize** model.
     * Example usage:
     * ```ts
@@ -3757,6 +3772,7 @@ export namespace Prisma {
     MatchingSetBuyPlan: 'MatchingSetBuyPlan',
     MatchingSetBuyPlanLine: 'MatchingSetBuyPlanLine',
     SkuActivity: 'SkuActivity',
+    SkuReplacement: 'SkuReplacement',
     SkuSize: 'SkuSize',
     Inventory: 'Inventory',
     InventoryAuditLog: 'InventoryAuditLog',
@@ -3876,7 +3892,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "productContent" | "cart" | "cartLine" | "order" | "orderLine" | "user" | "employee" | "role" | "session" | "identityUserRoleAssignment" | "identityUserStoreScope" | "identityMfaFactor" | "identityExternalIdentity" | "identityLoginEvent" | "identitySessionEvent" | "employeeSalesPassword" | "employeeSalesPasswordAudit" | "employeeSalesOverrideToken" | "timeClockPolicy" | "timeClockEntry" | "timeClockEntryAdjustment" | "commissionOverride" | "productsAuditLog" | "seasonOverlay" | "etlRun" | "platformAuditLog" | "activityReviewEventReview" | "skuAttributeOverride" | "vendorOverlay" | "vendor" | "vendorStoreAccount" | "storeMaster" | "storeGroup" | "storeGroupMember" | "purchasePlan" | "purchasePlanRow" | "purchasePlanAdjustment" | "purchasePlanAudit" | "purchasePlanV3" | "purchasePlanV3Row" | "purchasePlanV3Adjustment" | "purchasePlanV3Audit" | "assortmentColorAlias" | "assortmentPlan" | "assortmentPlanPoolItem" | "assortmentPlanWave" | "assortmentPlanWaveLine" | "assortmentPlanStoreAllocation" | "assortmentPlanTransferLink" | "skuUpc" | "casePack" | "casePackCell" | "futurePriceChange" | "purchaseOrderLegacy" | "purchaseOrderLegacyLine" | "purchaseOrder" | "purchaseOrderLine" | "purchaseOrderLineSizeCell" | "supplierQuotation" | "supplierQuotationLine" | "supplierQuotationLineRelation" | "poReceipt" | "poReceiptLine" | "poStatusHistory" | "asnCartonLegacy" | "asnCartonLegacyLine" | "transferLegacySummary" | "skuKeywordOverride" | "sizeTypeOverride" | "productsBatchOperation" | "productsBatchOperationItem" | "productFamily" | "categoryProductFamily" | "categoryBuyerAssignment" | "sku" | "matchingSetType" | "matchingSetRole" | "matchingSet" | "matchingSetMember" | "matchingSetMemberSizeCurve" | "matchingSetBuyPlan" | "matchingSetBuyPlanLine" | "skuActivity" | "skuSize" | "inventory" | "inventoryAuditLog" | "inventoryAdjustment" | "inventoryAdjustmentLine" | "stockLevel" | "stockMovement" | "stockCostEvent" | "stockCostBalance" | "manualReceipt" | "manualReceiptLine" | "importShipment" | "importContainer" | "importShipmentLine" | "importSupplierInvoice" | "importInvoiceLine" | "importCharge" | "importLandedCostAllocation" | "importCostBuild" | "importCostComponentAllocation" | "goodsInTransitRecord" | "importVerificationCheck" | "importSuggestedPrice" | "importPayableHandoff" | "importInventoryReceipt" | "importInventoryTrueUp" | "replenishmentTarget" | "inventorySalesCell" | "reorderPlannerDefaults" | "inventoryHistorySnapshot" | "inventoryHistoryMonth" | "inventoryHistoryTrendWeek" | "inventoryHistoryMovementBucket" | "inventoryMonthCloseRun" | "inventoryClosedMonth" | "inventoryWeekCloseRun" | "inventoryClosedWeek" | "manualReturn" | "manualReturnLine" | "transfer" | "transferLine" | "autoTransferRun" | "balancingTransferRun" | "balancingTransferRunV2" | "skuCodeSequence" | "attributeDimension" | "attributeFamilyRule" | "attributeValue" | "skuAttributeAssignment" | "attributeDerivationRule" | "etlRunTable" | "reportTemplate" | "reportRun" | "customerIntelligenceCustomer" | "customerIdentity" | "customerContact" | "customerAddress" | "customerLegacyProfile" | "customerFinancialProfile" | "customerSalesSummaryLegacy" | "customerImportBatch" | "customerImportReject" | "customerTransactionFact" | "customerTransactionItem" | "salesHistoryTicket" | "salesHistoryTicketLine" | "ticketHeader" | "ticketDetail" | "ticketTender" | "customerMetrics" | "customerMetricsDaily" | "customerFeatureCurrent" | "customerCategoryFeature" | "customerBrandFeature" | "customerSizeProfile" | "segmentMetricRegistry" | "customerSegment" | "customerSegmentVersion" | "segmentVersionMetricDependency" | "customerSegmentCurrent" | "customerSegmentHistory" | "customerSegmentEvaluationRun" | "activationAudience" | "activationAudienceMember" | "customerSegmentAuditLog" | "customer" | "familyMember" | "taxonomyDepartment" | "taxonomyCategory" | "taxonomyGroup" | "taxonomyKeyword" | "taxonomySector" | "taxonomyReturnCode" | "taxonomyPromotionCode" | "taxonomySizeType" | "posRegister" | "posTenderType" | "posPayoutCategory" | "posShift" | "posTicket" | "posTicketLine" | "posTicketTender" | "posTicketEvent" | "posPayout"
+      modelProps: "productContent" | "cart" | "cartLine" | "order" | "orderLine" | "user" | "employee" | "role" | "session" | "identityUserRoleAssignment" | "identityUserStoreScope" | "identityMfaFactor" | "identityExternalIdentity" | "identityLoginEvent" | "identitySessionEvent" | "employeeSalesPassword" | "employeeSalesPasswordAudit" | "employeeSalesOverrideToken" | "timeClockPolicy" | "timeClockEntry" | "timeClockEntryAdjustment" | "commissionOverride" | "productsAuditLog" | "seasonOverlay" | "etlRun" | "platformAuditLog" | "activityReviewEventReview" | "skuAttributeOverride" | "vendorOverlay" | "vendor" | "vendorStoreAccount" | "storeMaster" | "storeGroup" | "storeGroupMember" | "purchasePlan" | "purchasePlanRow" | "purchasePlanAdjustment" | "purchasePlanAudit" | "purchasePlanV3" | "purchasePlanV3Row" | "purchasePlanV3Adjustment" | "purchasePlanV3Audit" | "assortmentColorAlias" | "assortmentPlan" | "assortmentPlanPoolItem" | "assortmentPlanWave" | "assortmentPlanWaveLine" | "assortmentPlanStoreAllocation" | "assortmentPlanTransferLink" | "skuUpc" | "casePack" | "casePackCell" | "futurePriceChange" | "purchaseOrderLegacy" | "purchaseOrderLegacyLine" | "purchaseOrder" | "purchaseOrderLine" | "purchaseOrderLineSizeCell" | "supplierQuotation" | "supplierQuotationLine" | "supplierQuotationLineRelation" | "poReceipt" | "poReceiptLine" | "poStatusHistory" | "asnCartonLegacy" | "asnCartonLegacyLine" | "transferLegacySummary" | "skuKeywordOverride" | "sizeTypeOverride" | "productsBatchOperation" | "productsBatchOperationItem" | "productFamily" | "categoryProductFamily" | "categoryBuyerAssignment" | "sku" | "matchingSetType" | "matchingSetRole" | "matchingSet" | "matchingSetMember" | "matchingSetMemberSizeCurve" | "matchingSetBuyPlan" | "matchingSetBuyPlanLine" | "skuActivity" | "skuReplacement" | "skuSize" | "inventory" | "inventoryAuditLog" | "inventoryAdjustment" | "inventoryAdjustmentLine" | "stockLevel" | "stockMovement" | "stockCostEvent" | "stockCostBalance" | "manualReceipt" | "manualReceiptLine" | "importShipment" | "importContainer" | "importShipmentLine" | "importSupplierInvoice" | "importInvoiceLine" | "importCharge" | "importLandedCostAllocation" | "importCostBuild" | "importCostComponentAllocation" | "goodsInTransitRecord" | "importVerificationCheck" | "importSuggestedPrice" | "importPayableHandoff" | "importInventoryReceipt" | "importInventoryTrueUp" | "replenishmentTarget" | "inventorySalesCell" | "reorderPlannerDefaults" | "inventoryHistorySnapshot" | "inventoryHistoryMonth" | "inventoryHistoryTrendWeek" | "inventoryHistoryMovementBucket" | "inventoryMonthCloseRun" | "inventoryClosedMonth" | "inventoryWeekCloseRun" | "inventoryClosedWeek" | "manualReturn" | "manualReturnLine" | "transfer" | "transferLine" | "autoTransferRun" | "balancingTransferRun" | "balancingTransferRunV2" | "skuCodeSequence" | "attributeDimension" | "attributeFamilyRule" | "attributeValue" | "skuAttributeAssignment" | "attributeDerivationRule" | "etlRunTable" | "reportTemplate" | "reportRun" | "customerIntelligenceCustomer" | "customerIdentity" | "customerContact" | "customerAddress" | "customerLegacyProfile" | "customerFinancialProfile" | "customerSalesSummaryLegacy" | "customerImportBatch" | "customerImportReject" | "customerTransactionFact" | "customerTransactionItem" | "salesHistoryTicket" | "salesHistoryTicketLine" | "ticketHeader" | "ticketDetail" | "ticketTender" | "customerMetrics" | "customerMetricsDaily" | "customerFeatureCurrent" | "customerCategoryFeature" | "customerBrandFeature" | "customerSizeProfile" | "segmentMetricRegistry" | "customerSegment" | "customerSegmentVersion" | "segmentVersionMetricDependency" | "customerSegmentCurrent" | "customerSegmentHistory" | "customerSegmentEvaluationRun" | "activationAudience" | "activationAudienceMember" | "customerSegmentAuditLog" | "customer" | "familyMember" | "taxonomyDepartment" | "taxonomyCategory" | "taxonomyGroup" | "taxonomyKeyword" | "taxonomySector" | "taxonomyReturnCode" | "taxonomyPromotionCode" | "taxonomySizeType" | "posRegister" | "posTenderType" | "posPayoutCategory" | "posShift" | "posTicket" | "posTicketLine" | "posTicketTender" | "posTicketEvent" | "posPayout"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -9687,6 +9703,76 @@ export namespace Prisma {
           count: {
             args: Prisma.SkuActivityCountArgs<ExtArgs>
             result: $Utils.Optional<SkuActivityCountAggregateOutputType> | number
+          }
+        }
+      }
+      SkuReplacement: {
+        payload: Prisma.$SkuReplacementPayload<ExtArgs>
+        fields: Prisma.SkuReplacementFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.SkuReplacementFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SkuReplacementPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.SkuReplacementFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SkuReplacementPayload>
+          }
+          findFirst: {
+            args: Prisma.SkuReplacementFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SkuReplacementPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.SkuReplacementFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SkuReplacementPayload>
+          }
+          findMany: {
+            args: Prisma.SkuReplacementFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SkuReplacementPayload>[]
+          }
+          create: {
+            args: Prisma.SkuReplacementCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SkuReplacementPayload>
+          }
+          createMany: {
+            args: Prisma.SkuReplacementCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.SkuReplacementCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SkuReplacementPayload>[]
+          }
+          delete: {
+            args: Prisma.SkuReplacementDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SkuReplacementPayload>
+          }
+          update: {
+            args: Prisma.SkuReplacementUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SkuReplacementPayload>
+          }
+          deleteMany: {
+            args: Prisma.SkuReplacementDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.SkuReplacementUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.SkuReplacementUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SkuReplacementPayload>
+          }
+          aggregate: {
+            args: Prisma.SkuReplacementAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSkuReplacement>
+          }
+          groupBy: {
+            args: Prisma.SkuReplacementGroupByArgs<ExtArgs>
+            result: $Utils.Optional<SkuReplacementGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.SkuReplacementCountArgs<ExtArgs>
+            result: $Utils.Optional<SkuReplacementCountAggregateOutputType> | number
           }
         }
       }
@@ -18131,6 +18217,8 @@ export namespace Prisma {
     importCostBuildOutputs: number
     supplierQuotationLines: number
     supplierQuotationRelations: number
+    replacementsFromThis: number
+    replacementsToThis: number
   }
 
   export type SkuCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -18159,6 +18247,8 @@ export namespace Prisma {
     importCostBuildOutputs?: boolean | SkuCountOutputTypeCountImportCostBuildOutputsArgs
     supplierQuotationLines?: boolean | SkuCountOutputTypeCountSupplierQuotationLinesArgs
     supplierQuotationRelations?: boolean | SkuCountOutputTypeCountSupplierQuotationRelationsArgs
+    replacementsFromThis?: boolean | SkuCountOutputTypeCountReplacementsFromThisArgs
+    replacementsToThis?: boolean | SkuCountOutputTypeCountReplacementsToThisArgs
   }
 
   // Custom InputTypes
@@ -18345,6 +18435,20 @@ export namespace Prisma {
    */
   export type SkuCountOutputTypeCountSupplierQuotationRelationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: SupplierQuotationLineRelationWhereInput
+  }
+
+  /**
+   * SkuCountOutputType without action
+   */
+  export type SkuCountOutputTypeCountReplacementsFromThisArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SkuReplacementWhereInput
+  }
+
+  /**
+   * SkuCountOutputType without action
+   */
+  export type SkuCountOutputTypeCountReplacementsToThisArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SkuReplacementWhereInput
   }
 
 
@@ -97657,6 +97761,8 @@ export namespace Prisma {
     importCostBuildOutputs?: boolean | Sku$importCostBuildOutputsArgs<ExtArgs>
     supplierQuotationLines?: boolean | Sku$supplierQuotationLinesArgs<ExtArgs>
     supplierQuotationRelations?: boolean | Sku$supplierQuotationRelationsArgs<ExtArgs>
+    replacementsFromThis?: boolean | Sku$replacementsFromThisArgs<ExtArgs>
+    replacementsToThis?: boolean | Sku$replacementsToThisArgs<ExtArgs>
     _count?: boolean | SkuCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["sku"]>
 
@@ -97782,6 +97888,8 @@ export namespace Prisma {
     importCostBuildOutputs?: boolean | Sku$importCostBuildOutputsArgs<ExtArgs>
     supplierQuotationLines?: boolean | Sku$supplierQuotationLinesArgs<ExtArgs>
     supplierQuotationRelations?: boolean | Sku$supplierQuotationRelationsArgs<ExtArgs>
+    replacementsFromThis?: boolean | Sku$replacementsFromThisArgs<ExtArgs>
+    replacementsToThis?: boolean | Sku$replacementsToThisArgs<ExtArgs>
     _count?: boolean | SkuCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type SkuIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -97817,6 +97925,8 @@ export namespace Prisma {
       importCostBuildOutputs: Prisma.$ImportCostBuildPayload<ExtArgs>[]
       supplierQuotationLines: Prisma.$SupplierQuotationLinePayload<ExtArgs>[]
       supplierQuotationRelations: Prisma.$SupplierQuotationLineRelationPayload<ExtArgs>[]
+      replacementsFromThis: Prisma.$SkuReplacementPayload<ExtArgs>[]
+      replacementsToThis: Prisma.$SkuReplacementPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -98261,6 +98371,8 @@ export namespace Prisma {
     importCostBuildOutputs<T extends Sku$importCostBuildOutputsArgs<ExtArgs> = {}>(args?: Subset<T, Sku$importCostBuildOutputsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ImportCostBuildPayload<ExtArgs>, T, "findMany"> | Null>
     supplierQuotationLines<T extends Sku$supplierQuotationLinesArgs<ExtArgs> = {}>(args?: Subset<T, Sku$supplierQuotationLinesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SupplierQuotationLinePayload<ExtArgs>, T, "findMany"> | Null>
     supplierQuotationRelations<T extends Sku$supplierQuotationRelationsArgs<ExtArgs> = {}>(args?: Subset<T, Sku$supplierQuotationRelationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SupplierQuotationLineRelationPayload<ExtArgs>, T, "findMany"> | Null>
+    replacementsFromThis<T extends Sku$replacementsFromThisArgs<ExtArgs> = {}>(args?: Subset<T, Sku$replacementsFromThisArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SkuReplacementPayload<ExtArgs>, T, "findMany"> | Null>
+    replacementsToThis<T extends Sku$replacementsToThisArgs<ExtArgs> = {}>(args?: Subset<T, Sku$replacementsToThisArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SkuReplacementPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -99164,6 +99276,46 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: SupplierQuotationLineRelationScalarFieldEnum | SupplierQuotationLineRelationScalarFieldEnum[]
+  }
+
+  /**
+   * Sku.replacementsFromThis
+   */
+  export type Sku$replacementsFromThisArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SkuReplacement
+     */
+    select?: SkuReplacementSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SkuReplacementInclude<ExtArgs> | null
+    where?: SkuReplacementWhereInput
+    orderBy?: SkuReplacementOrderByWithRelationInput | SkuReplacementOrderByWithRelationInput[]
+    cursor?: SkuReplacementWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: SkuReplacementScalarFieldEnum | SkuReplacementScalarFieldEnum[]
+  }
+
+  /**
+   * Sku.replacementsToThis
+   */
+  export type Sku$replacementsToThisArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SkuReplacement
+     */
+    select?: SkuReplacementSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SkuReplacementInclude<ExtArgs> | null
+    where?: SkuReplacementWhereInput
+    orderBy?: SkuReplacementOrderByWithRelationInput | SkuReplacementOrderByWithRelationInput[]
+    cursor?: SkuReplacementWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: SkuReplacementScalarFieldEnum | SkuReplacementScalarFieldEnum[]
   }
 
   /**
@@ -101227,6 +101379,7 @@ export namespace Prisma {
   export type MatchingSetMinAggregateOutputType = {
     id: string | null
     code: string | null
+    displayName: string | null
     setTypeCode: string | null
     descriptionEs: string | null
     vendorId: string | null
@@ -101250,6 +101403,7 @@ export namespace Prisma {
   export type MatchingSetMaxAggregateOutputType = {
     id: string | null
     code: string | null
+    displayName: string | null
     setTypeCode: string | null
     descriptionEs: string | null
     vendorId: string | null
@@ -101273,6 +101427,7 @@ export namespace Prisma {
   export type MatchingSetCountAggregateOutputType = {
     id: number
     code: number
+    displayName: number
     setTypeCode: number
     descriptionEs: number
     vendorId: number
@@ -101298,6 +101453,7 @@ export namespace Prisma {
   export type MatchingSetMinAggregateInputType = {
     id?: true
     code?: true
+    displayName?: true
     setTypeCode?: true
     descriptionEs?: true
     vendorId?: true
@@ -101321,6 +101477,7 @@ export namespace Prisma {
   export type MatchingSetMaxAggregateInputType = {
     id?: true
     code?: true
+    displayName?: true
     setTypeCode?: true
     descriptionEs?: true
     vendorId?: true
@@ -101344,6 +101501,7 @@ export namespace Prisma {
   export type MatchingSetCountAggregateInputType = {
     id?: true
     code?: true
+    displayName?: true
     setTypeCode?: true
     descriptionEs?: true
     vendorId?: true
@@ -101440,6 +101598,7 @@ export namespace Prisma {
   export type MatchingSetGroupByOutputType = {
     id: string
     code: string
+    displayName: string | null
     setTypeCode: string
     descriptionEs: string | null
     vendorId: string | null
@@ -101480,6 +101639,7 @@ export namespace Prisma {
   export type MatchingSetSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     code?: boolean
+    displayName?: boolean
     setTypeCode?: boolean
     descriptionEs?: boolean
     vendorId?: boolean
@@ -101510,6 +101670,7 @@ export namespace Prisma {
   export type MatchingSetSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     code?: boolean
+    displayName?: boolean
     setTypeCode?: boolean
     descriptionEs?: boolean
     vendorId?: boolean
@@ -101536,6 +101697,7 @@ export namespace Prisma {
   export type MatchingSetSelectScalar = {
     id?: boolean
     code?: boolean
+    displayName?: boolean
     setTypeCode?: boolean
     descriptionEs?: boolean
     vendorId?: boolean
@@ -101584,6 +101746,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       code: string
+      displayName: string | null
       setTypeCode: string
       descriptionEs: string | null
       vendorId: string | null
@@ -102003,6 +102166,7 @@ export namespace Prisma {
   interface MatchingSetFieldRefs {
     readonly id: FieldRef<"MatchingSet", 'String'>
     readonly code: FieldRef<"MatchingSet", 'String'>
+    readonly displayName: FieldRef<"MatchingSet", 'String'>
     readonly setTypeCode: FieldRef<"MatchingSet", 'String'>
     readonly descriptionEs: FieldRef<"MatchingSet", 'String'>
     readonly vendorId: FieldRef<"MatchingSet", 'String'>
@@ -107919,6 +108083,1029 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: SkuActivityInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model SkuReplacement
+   */
+
+  export type AggregateSkuReplacement = {
+    _count: SkuReplacementCountAggregateOutputType | null
+    _min: SkuReplacementMinAggregateOutputType | null
+    _max: SkuReplacementMaxAggregateOutputType | null
+  }
+
+  export type SkuReplacementMinAggregateOutputType = {
+    id: string | null
+    oldSkuId: string | null
+    replacementSkuId: string | null
+    replacementType: string | null
+    transferDemand: boolean | null
+    effectiveAt: Date | null
+    retiredAt: Date | null
+    note: string | null
+    createdAt: Date | null
+    createdBy: string | null
+    updatedAt: Date | null
+    updatedBy: string | null
+  }
+
+  export type SkuReplacementMaxAggregateOutputType = {
+    id: string | null
+    oldSkuId: string | null
+    replacementSkuId: string | null
+    replacementType: string | null
+    transferDemand: boolean | null
+    effectiveAt: Date | null
+    retiredAt: Date | null
+    note: string | null
+    createdAt: Date | null
+    createdBy: string | null
+    updatedAt: Date | null
+    updatedBy: string | null
+  }
+
+  export type SkuReplacementCountAggregateOutputType = {
+    id: number
+    oldSkuId: number
+    replacementSkuId: number
+    replacementType: number
+    transferDemand: number
+    effectiveAt: number
+    retiredAt: number
+    note: number
+    createdAt: number
+    createdBy: number
+    updatedAt: number
+    updatedBy: number
+    _all: number
+  }
+
+
+  export type SkuReplacementMinAggregateInputType = {
+    id?: true
+    oldSkuId?: true
+    replacementSkuId?: true
+    replacementType?: true
+    transferDemand?: true
+    effectiveAt?: true
+    retiredAt?: true
+    note?: true
+    createdAt?: true
+    createdBy?: true
+    updatedAt?: true
+    updatedBy?: true
+  }
+
+  export type SkuReplacementMaxAggregateInputType = {
+    id?: true
+    oldSkuId?: true
+    replacementSkuId?: true
+    replacementType?: true
+    transferDemand?: true
+    effectiveAt?: true
+    retiredAt?: true
+    note?: true
+    createdAt?: true
+    createdBy?: true
+    updatedAt?: true
+    updatedBy?: true
+  }
+
+  export type SkuReplacementCountAggregateInputType = {
+    id?: true
+    oldSkuId?: true
+    replacementSkuId?: true
+    replacementType?: true
+    transferDemand?: true
+    effectiveAt?: true
+    retiredAt?: true
+    note?: true
+    createdAt?: true
+    createdBy?: true
+    updatedAt?: true
+    updatedBy?: true
+    _all?: true
+  }
+
+  export type SkuReplacementAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which SkuReplacement to aggregate.
+     */
+    where?: SkuReplacementWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SkuReplacements to fetch.
+     */
+    orderBy?: SkuReplacementOrderByWithRelationInput | SkuReplacementOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: SkuReplacementWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SkuReplacements from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SkuReplacements.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned SkuReplacements
+    **/
+    _count?: true | SkuReplacementCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: SkuReplacementMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: SkuReplacementMaxAggregateInputType
+  }
+
+  export type GetSkuReplacementAggregateType<T extends SkuReplacementAggregateArgs> = {
+        [P in keyof T & keyof AggregateSkuReplacement]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateSkuReplacement[P]>
+      : GetScalarType<T[P], AggregateSkuReplacement[P]>
+  }
+
+
+
+
+  export type SkuReplacementGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SkuReplacementWhereInput
+    orderBy?: SkuReplacementOrderByWithAggregationInput | SkuReplacementOrderByWithAggregationInput[]
+    by: SkuReplacementScalarFieldEnum[] | SkuReplacementScalarFieldEnum
+    having?: SkuReplacementScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: SkuReplacementCountAggregateInputType | true
+    _min?: SkuReplacementMinAggregateInputType
+    _max?: SkuReplacementMaxAggregateInputType
+  }
+
+  export type SkuReplacementGroupByOutputType = {
+    id: string
+    oldSkuId: string
+    replacementSkuId: string
+    replacementType: string
+    transferDemand: boolean
+    effectiveAt: Date
+    retiredAt: Date | null
+    note: string | null
+    createdAt: Date
+    createdBy: string
+    updatedAt: Date
+    updatedBy: string
+    _count: SkuReplacementCountAggregateOutputType | null
+    _min: SkuReplacementMinAggregateOutputType | null
+    _max: SkuReplacementMaxAggregateOutputType | null
+  }
+
+  type GetSkuReplacementGroupByPayload<T extends SkuReplacementGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<SkuReplacementGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof SkuReplacementGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], SkuReplacementGroupByOutputType[P]>
+            : GetScalarType<T[P], SkuReplacementGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type SkuReplacementSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    oldSkuId?: boolean
+    replacementSkuId?: boolean
+    replacementType?: boolean
+    transferDemand?: boolean
+    effectiveAt?: boolean
+    retiredAt?: boolean
+    note?: boolean
+    createdAt?: boolean
+    createdBy?: boolean
+    updatedAt?: boolean
+    updatedBy?: boolean
+    oldSku?: boolean | SkuDefaultArgs<ExtArgs>
+    replacementSku?: boolean | SkuDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["skuReplacement"]>
+
+  export type SkuReplacementSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    oldSkuId?: boolean
+    replacementSkuId?: boolean
+    replacementType?: boolean
+    transferDemand?: boolean
+    effectiveAt?: boolean
+    retiredAt?: boolean
+    note?: boolean
+    createdAt?: boolean
+    createdBy?: boolean
+    updatedAt?: boolean
+    updatedBy?: boolean
+    oldSku?: boolean | SkuDefaultArgs<ExtArgs>
+    replacementSku?: boolean | SkuDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["skuReplacement"]>
+
+  export type SkuReplacementSelectScalar = {
+    id?: boolean
+    oldSkuId?: boolean
+    replacementSkuId?: boolean
+    replacementType?: boolean
+    transferDemand?: boolean
+    effectiveAt?: boolean
+    retiredAt?: boolean
+    note?: boolean
+    createdAt?: boolean
+    createdBy?: boolean
+    updatedAt?: boolean
+    updatedBy?: boolean
+  }
+
+  export type SkuReplacementInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    oldSku?: boolean | SkuDefaultArgs<ExtArgs>
+    replacementSku?: boolean | SkuDefaultArgs<ExtArgs>
+  }
+  export type SkuReplacementIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    oldSku?: boolean | SkuDefaultArgs<ExtArgs>
+    replacementSku?: boolean | SkuDefaultArgs<ExtArgs>
+  }
+
+  export type $SkuReplacementPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "SkuReplacement"
+    objects: {
+      oldSku: Prisma.$SkuPayload<ExtArgs>
+      replacementSku: Prisma.$SkuPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      oldSkuId: string
+      replacementSkuId: string
+      replacementType: string
+      transferDemand: boolean
+      effectiveAt: Date
+      retiredAt: Date | null
+      note: string | null
+      createdAt: Date
+      createdBy: string
+      updatedAt: Date
+      updatedBy: string
+    }, ExtArgs["result"]["skuReplacement"]>
+    composites: {}
+  }
+
+  type SkuReplacementGetPayload<S extends boolean | null | undefined | SkuReplacementDefaultArgs> = $Result.GetResult<Prisma.$SkuReplacementPayload, S>
+
+  type SkuReplacementCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<SkuReplacementFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: SkuReplacementCountAggregateInputType | true
+    }
+
+  export interface SkuReplacementDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['SkuReplacement'], meta: { name: 'SkuReplacement' } }
+    /**
+     * Find zero or one SkuReplacement that matches the filter.
+     * @param {SkuReplacementFindUniqueArgs} args - Arguments to find a SkuReplacement
+     * @example
+     * // Get one SkuReplacement
+     * const skuReplacement = await prisma.skuReplacement.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends SkuReplacementFindUniqueArgs>(args: SelectSubset<T, SkuReplacementFindUniqueArgs<ExtArgs>>): Prisma__SkuReplacementClient<$Result.GetResult<Prisma.$SkuReplacementPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one SkuReplacement that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {SkuReplacementFindUniqueOrThrowArgs} args - Arguments to find a SkuReplacement
+     * @example
+     * // Get one SkuReplacement
+     * const skuReplacement = await prisma.skuReplacement.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends SkuReplacementFindUniqueOrThrowArgs>(args: SelectSubset<T, SkuReplacementFindUniqueOrThrowArgs<ExtArgs>>): Prisma__SkuReplacementClient<$Result.GetResult<Prisma.$SkuReplacementPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first SkuReplacement that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SkuReplacementFindFirstArgs} args - Arguments to find a SkuReplacement
+     * @example
+     * // Get one SkuReplacement
+     * const skuReplacement = await prisma.skuReplacement.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends SkuReplacementFindFirstArgs>(args?: SelectSubset<T, SkuReplacementFindFirstArgs<ExtArgs>>): Prisma__SkuReplacementClient<$Result.GetResult<Prisma.$SkuReplacementPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first SkuReplacement that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SkuReplacementFindFirstOrThrowArgs} args - Arguments to find a SkuReplacement
+     * @example
+     * // Get one SkuReplacement
+     * const skuReplacement = await prisma.skuReplacement.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends SkuReplacementFindFirstOrThrowArgs>(args?: SelectSubset<T, SkuReplacementFindFirstOrThrowArgs<ExtArgs>>): Prisma__SkuReplacementClient<$Result.GetResult<Prisma.$SkuReplacementPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more SkuReplacements that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SkuReplacementFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all SkuReplacements
+     * const skuReplacements = await prisma.skuReplacement.findMany()
+     * 
+     * // Get first 10 SkuReplacements
+     * const skuReplacements = await prisma.skuReplacement.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const skuReplacementWithIdOnly = await prisma.skuReplacement.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends SkuReplacementFindManyArgs>(args?: SelectSubset<T, SkuReplacementFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SkuReplacementPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a SkuReplacement.
+     * @param {SkuReplacementCreateArgs} args - Arguments to create a SkuReplacement.
+     * @example
+     * // Create one SkuReplacement
+     * const SkuReplacement = await prisma.skuReplacement.create({
+     *   data: {
+     *     // ... data to create a SkuReplacement
+     *   }
+     * })
+     * 
+     */
+    create<T extends SkuReplacementCreateArgs>(args: SelectSubset<T, SkuReplacementCreateArgs<ExtArgs>>): Prisma__SkuReplacementClient<$Result.GetResult<Prisma.$SkuReplacementPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many SkuReplacements.
+     * @param {SkuReplacementCreateManyArgs} args - Arguments to create many SkuReplacements.
+     * @example
+     * // Create many SkuReplacements
+     * const skuReplacement = await prisma.skuReplacement.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends SkuReplacementCreateManyArgs>(args?: SelectSubset<T, SkuReplacementCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many SkuReplacements and returns the data saved in the database.
+     * @param {SkuReplacementCreateManyAndReturnArgs} args - Arguments to create many SkuReplacements.
+     * @example
+     * // Create many SkuReplacements
+     * const skuReplacement = await prisma.skuReplacement.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many SkuReplacements and only return the `id`
+     * const skuReplacementWithIdOnly = await prisma.skuReplacement.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends SkuReplacementCreateManyAndReturnArgs>(args?: SelectSubset<T, SkuReplacementCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SkuReplacementPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a SkuReplacement.
+     * @param {SkuReplacementDeleteArgs} args - Arguments to delete one SkuReplacement.
+     * @example
+     * // Delete one SkuReplacement
+     * const SkuReplacement = await prisma.skuReplacement.delete({
+     *   where: {
+     *     // ... filter to delete one SkuReplacement
+     *   }
+     * })
+     * 
+     */
+    delete<T extends SkuReplacementDeleteArgs>(args: SelectSubset<T, SkuReplacementDeleteArgs<ExtArgs>>): Prisma__SkuReplacementClient<$Result.GetResult<Prisma.$SkuReplacementPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one SkuReplacement.
+     * @param {SkuReplacementUpdateArgs} args - Arguments to update one SkuReplacement.
+     * @example
+     * // Update one SkuReplacement
+     * const skuReplacement = await prisma.skuReplacement.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends SkuReplacementUpdateArgs>(args: SelectSubset<T, SkuReplacementUpdateArgs<ExtArgs>>): Prisma__SkuReplacementClient<$Result.GetResult<Prisma.$SkuReplacementPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more SkuReplacements.
+     * @param {SkuReplacementDeleteManyArgs} args - Arguments to filter SkuReplacements to delete.
+     * @example
+     * // Delete a few SkuReplacements
+     * const { count } = await prisma.skuReplacement.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends SkuReplacementDeleteManyArgs>(args?: SelectSubset<T, SkuReplacementDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more SkuReplacements.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SkuReplacementUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many SkuReplacements
+     * const skuReplacement = await prisma.skuReplacement.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends SkuReplacementUpdateManyArgs>(args: SelectSubset<T, SkuReplacementUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one SkuReplacement.
+     * @param {SkuReplacementUpsertArgs} args - Arguments to update or create a SkuReplacement.
+     * @example
+     * // Update or create a SkuReplacement
+     * const skuReplacement = await prisma.skuReplacement.upsert({
+     *   create: {
+     *     // ... data to create a SkuReplacement
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the SkuReplacement we want to update
+     *   }
+     * })
+     */
+    upsert<T extends SkuReplacementUpsertArgs>(args: SelectSubset<T, SkuReplacementUpsertArgs<ExtArgs>>): Prisma__SkuReplacementClient<$Result.GetResult<Prisma.$SkuReplacementPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of SkuReplacements.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SkuReplacementCountArgs} args - Arguments to filter SkuReplacements to count.
+     * @example
+     * // Count the number of SkuReplacements
+     * const count = await prisma.skuReplacement.count({
+     *   where: {
+     *     // ... the filter for the SkuReplacements we want to count
+     *   }
+     * })
+    **/
+    count<T extends SkuReplacementCountArgs>(
+      args?: Subset<T, SkuReplacementCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], SkuReplacementCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a SkuReplacement.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SkuReplacementAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends SkuReplacementAggregateArgs>(args: Subset<T, SkuReplacementAggregateArgs>): Prisma.PrismaPromise<GetSkuReplacementAggregateType<T>>
+
+    /**
+     * Group by SkuReplacement.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SkuReplacementGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends SkuReplacementGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: SkuReplacementGroupByArgs['orderBy'] }
+        : { orderBy?: SkuReplacementGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, SkuReplacementGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSkuReplacementGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the SkuReplacement model
+   */
+  readonly fields: SkuReplacementFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for SkuReplacement.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__SkuReplacementClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    oldSku<T extends SkuDefaultArgs<ExtArgs> = {}>(args?: Subset<T, SkuDefaultArgs<ExtArgs>>): Prisma__SkuClient<$Result.GetResult<Prisma.$SkuPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    replacementSku<T extends SkuDefaultArgs<ExtArgs> = {}>(args?: Subset<T, SkuDefaultArgs<ExtArgs>>): Prisma__SkuClient<$Result.GetResult<Prisma.$SkuPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the SkuReplacement model
+   */ 
+  interface SkuReplacementFieldRefs {
+    readonly id: FieldRef<"SkuReplacement", 'String'>
+    readonly oldSkuId: FieldRef<"SkuReplacement", 'String'>
+    readonly replacementSkuId: FieldRef<"SkuReplacement", 'String'>
+    readonly replacementType: FieldRef<"SkuReplacement", 'String'>
+    readonly transferDemand: FieldRef<"SkuReplacement", 'Boolean'>
+    readonly effectiveAt: FieldRef<"SkuReplacement", 'DateTime'>
+    readonly retiredAt: FieldRef<"SkuReplacement", 'DateTime'>
+    readonly note: FieldRef<"SkuReplacement", 'String'>
+    readonly createdAt: FieldRef<"SkuReplacement", 'DateTime'>
+    readonly createdBy: FieldRef<"SkuReplacement", 'String'>
+    readonly updatedAt: FieldRef<"SkuReplacement", 'DateTime'>
+    readonly updatedBy: FieldRef<"SkuReplacement", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * SkuReplacement findUnique
+   */
+  export type SkuReplacementFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SkuReplacement
+     */
+    select?: SkuReplacementSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SkuReplacementInclude<ExtArgs> | null
+    /**
+     * Filter, which SkuReplacement to fetch.
+     */
+    where: SkuReplacementWhereUniqueInput
+  }
+
+  /**
+   * SkuReplacement findUniqueOrThrow
+   */
+  export type SkuReplacementFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SkuReplacement
+     */
+    select?: SkuReplacementSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SkuReplacementInclude<ExtArgs> | null
+    /**
+     * Filter, which SkuReplacement to fetch.
+     */
+    where: SkuReplacementWhereUniqueInput
+  }
+
+  /**
+   * SkuReplacement findFirst
+   */
+  export type SkuReplacementFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SkuReplacement
+     */
+    select?: SkuReplacementSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SkuReplacementInclude<ExtArgs> | null
+    /**
+     * Filter, which SkuReplacement to fetch.
+     */
+    where?: SkuReplacementWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SkuReplacements to fetch.
+     */
+    orderBy?: SkuReplacementOrderByWithRelationInput | SkuReplacementOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for SkuReplacements.
+     */
+    cursor?: SkuReplacementWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SkuReplacements from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SkuReplacements.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of SkuReplacements.
+     */
+    distinct?: SkuReplacementScalarFieldEnum | SkuReplacementScalarFieldEnum[]
+  }
+
+  /**
+   * SkuReplacement findFirstOrThrow
+   */
+  export type SkuReplacementFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SkuReplacement
+     */
+    select?: SkuReplacementSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SkuReplacementInclude<ExtArgs> | null
+    /**
+     * Filter, which SkuReplacement to fetch.
+     */
+    where?: SkuReplacementWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SkuReplacements to fetch.
+     */
+    orderBy?: SkuReplacementOrderByWithRelationInput | SkuReplacementOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for SkuReplacements.
+     */
+    cursor?: SkuReplacementWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SkuReplacements from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SkuReplacements.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of SkuReplacements.
+     */
+    distinct?: SkuReplacementScalarFieldEnum | SkuReplacementScalarFieldEnum[]
+  }
+
+  /**
+   * SkuReplacement findMany
+   */
+  export type SkuReplacementFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SkuReplacement
+     */
+    select?: SkuReplacementSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SkuReplacementInclude<ExtArgs> | null
+    /**
+     * Filter, which SkuReplacements to fetch.
+     */
+    where?: SkuReplacementWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SkuReplacements to fetch.
+     */
+    orderBy?: SkuReplacementOrderByWithRelationInput | SkuReplacementOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing SkuReplacements.
+     */
+    cursor?: SkuReplacementWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SkuReplacements from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SkuReplacements.
+     */
+    skip?: number
+    distinct?: SkuReplacementScalarFieldEnum | SkuReplacementScalarFieldEnum[]
+  }
+
+  /**
+   * SkuReplacement create
+   */
+  export type SkuReplacementCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SkuReplacement
+     */
+    select?: SkuReplacementSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SkuReplacementInclude<ExtArgs> | null
+    /**
+     * The data needed to create a SkuReplacement.
+     */
+    data: XOR<SkuReplacementCreateInput, SkuReplacementUncheckedCreateInput>
+  }
+
+  /**
+   * SkuReplacement createMany
+   */
+  export type SkuReplacementCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many SkuReplacements.
+     */
+    data: SkuReplacementCreateManyInput | SkuReplacementCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * SkuReplacement createManyAndReturn
+   */
+  export type SkuReplacementCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SkuReplacement
+     */
+    select?: SkuReplacementSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many SkuReplacements.
+     */
+    data: SkuReplacementCreateManyInput | SkuReplacementCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SkuReplacementIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * SkuReplacement update
+   */
+  export type SkuReplacementUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SkuReplacement
+     */
+    select?: SkuReplacementSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SkuReplacementInclude<ExtArgs> | null
+    /**
+     * The data needed to update a SkuReplacement.
+     */
+    data: XOR<SkuReplacementUpdateInput, SkuReplacementUncheckedUpdateInput>
+    /**
+     * Choose, which SkuReplacement to update.
+     */
+    where: SkuReplacementWhereUniqueInput
+  }
+
+  /**
+   * SkuReplacement updateMany
+   */
+  export type SkuReplacementUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update SkuReplacements.
+     */
+    data: XOR<SkuReplacementUpdateManyMutationInput, SkuReplacementUncheckedUpdateManyInput>
+    /**
+     * Filter which SkuReplacements to update
+     */
+    where?: SkuReplacementWhereInput
+  }
+
+  /**
+   * SkuReplacement upsert
+   */
+  export type SkuReplacementUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SkuReplacement
+     */
+    select?: SkuReplacementSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SkuReplacementInclude<ExtArgs> | null
+    /**
+     * The filter to search for the SkuReplacement to update in case it exists.
+     */
+    where: SkuReplacementWhereUniqueInput
+    /**
+     * In case the SkuReplacement found by the `where` argument doesn't exist, create a new SkuReplacement with this data.
+     */
+    create: XOR<SkuReplacementCreateInput, SkuReplacementUncheckedCreateInput>
+    /**
+     * In case the SkuReplacement was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<SkuReplacementUpdateInput, SkuReplacementUncheckedUpdateInput>
+  }
+
+  /**
+   * SkuReplacement delete
+   */
+  export type SkuReplacementDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SkuReplacement
+     */
+    select?: SkuReplacementSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SkuReplacementInclude<ExtArgs> | null
+    /**
+     * Filter which SkuReplacement to delete.
+     */
+    where: SkuReplacementWhereUniqueInput
+  }
+
+  /**
+   * SkuReplacement deleteMany
+   */
+  export type SkuReplacementDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which SkuReplacements to delete
+     */
+    where?: SkuReplacementWhereInput
+  }
+
+  /**
+   * SkuReplacement without action
+   */
+  export type SkuReplacementDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SkuReplacement
+     */
+    select?: SkuReplacementSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SkuReplacementInclude<ExtArgs> | null
   }
 
 
@@ -222893,6 +224080,7 @@ export namespace Prisma {
   export const MatchingSetScalarFieldEnum: {
     id: 'id',
     code: 'code',
+    displayName: 'displayName',
     setTypeCode: 'setTypeCode',
     descriptionEs: 'descriptionEs',
     vendorId: 'vendorId',
@@ -223008,6 +224196,24 @@ export namespace Prisma {
   };
 
   export type SkuActivityScalarFieldEnum = (typeof SkuActivityScalarFieldEnum)[keyof typeof SkuActivityScalarFieldEnum]
+
+
+  export const SkuReplacementScalarFieldEnum: {
+    id: 'id',
+    oldSkuId: 'oldSkuId',
+    replacementSkuId: 'replacementSkuId',
+    replacementType: 'replacementType',
+    transferDemand: 'transferDemand',
+    effectiveAt: 'effectiveAt',
+    retiredAt: 'retiredAt',
+    note: 'note',
+    createdAt: 'createdAt',
+    createdBy: 'createdBy',
+    updatedAt: 'updatedAt',
+    updatedBy: 'updatedBy'
+  };
+
+  export type SkuReplacementScalarFieldEnum = (typeof SkuReplacementScalarFieldEnum)[keyof typeof SkuReplacementScalarFieldEnum]
 
 
   export const SkuSizeScalarFieldEnum: {
@@ -232141,6 +233347,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildListRelationFilter
     supplierQuotationLines?: SupplierQuotationLineListRelationFilter
     supplierQuotationRelations?: SupplierQuotationLineRelationListRelationFilter
+    replacementsFromThis?: SkuReplacementListRelationFilter
+    replacementsToThis?: SkuReplacementListRelationFilter
   }
 
   export type SkuOrderByWithRelationInput = {
@@ -232214,6 +233422,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildOrderByRelationAggregateInput
     supplierQuotationLines?: SupplierQuotationLineOrderByRelationAggregateInput
     supplierQuotationRelations?: SupplierQuotationLineRelationOrderByRelationAggregateInput
+    replacementsFromThis?: SkuReplacementOrderByRelationAggregateInput
+    replacementsToThis?: SkuReplacementOrderByRelationAggregateInput
   }
 
   export type SkuWhereUniqueInput = Prisma.AtLeast<{
@@ -232290,6 +233500,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildListRelationFilter
     supplierQuotationLines?: SupplierQuotationLineListRelationFilter
     supplierQuotationRelations?: SupplierQuotationLineRelationListRelationFilter
+    replacementsFromThis?: SkuReplacementListRelationFilter
+    replacementsToThis?: SkuReplacementListRelationFilter
   }, "id" | "code" | "provisionalCode">
 
   export type SkuOrderByWithAggregationInput = {
@@ -232543,6 +233755,7 @@ export namespace Prisma {
     NOT?: MatchingSetWhereInput | MatchingSetWhereInput[]
     id?: UuidFilter<"MatchingSet"> | string
     code?: StringFilter<"MatchingSet"> | string
+    displayName?: StringNullableFilter<"MatchingSet"> | string | null
     setTypeCode?: StringFilter<"MatchingSet"> | string
     descriptionEs?: StringNullableFilter<"MatchingSet"> | string | null
     vendorId?: StringNullableFilter<"MatchingSet"> | string | null
@@ -232572,6 +233785,7 @@ export namespace Prisma {
   export type MatchingSetOrderByWithRelationInput = {
     id?: SortOrder
     code?: SortOrder
+    displayName?: SortOrderInput | SortOrder
     setTypeCode?: SortOrder
     descriptionEs?: SortOrderInput | SortOrder
     vendorId?: SortOrderInput | SortOrder
@@ -232604,6 +233818,7 @@ export namespace Prisma {
     AND?: MatchingSetWhereInput | MatchingSetWhereInput[]
     OR?: MatchingSetWhereInput[]
     NOT?: MatchingSetWhereInput | MatchingSetWhereInput[]
+    displayName?: StringNullableFilter<"MatchingSet"> | string | null
     setTypeCode?: StringFilter<"MatchingSet"> | string
     descriptionEs?: StringNullableFilter<"MatchingSet"> | string | null
     vendorId?: StringNullableFilter<"MatchingSet"> | string | null
@@ -232633,6 +233848,7 @@ export namespace Prisma {
   export type MatchingSetOrderByWithAggregationInput = {
     id?: SortOrder
     code?: SortOrder
+    displayName?: SortOrderInput | SortOrder
     setTypeCode?: SortOrder
     descriptionEs?: SortOrderInput | SortOrder
     vendorId?: SortOrderInput | SortOrder
@@ -232662,6 +233878,7 @@ export namespace Prisma {
     NOT?: MatchingSetScalarWhereWithAggregatesInput | MatchingSetScalarWhereWithAggregatesInput[]
     id?: UuidWithAggregatesFilter<"MatchingSet"> | string
     code?: StringWithAggregatesFilter<"MatchingSet"> | string
+    displayName?: StringNullableWithAggregatesFilter<"MatchingSet"> | string | null
     setTypeCode?: StringWithAggregatesFilter<"MatchingSet"> | string
     descriptionEs?: StringNullableWithAggregatesFilter<"MatchingSet"> | string | null
     vendorId?: StringNullableWithAggregatesFilter<"MatchingSet"> | string | null
@@ -233189,6 +234406,99 @@ export namespace Prisma {
     actor?: StringWithAggregatesFilter<"SkuActivity"> | string
     payloadJson?: JsonNullableWithAggregatesFilter<"SkuActivity">
     occurredAt?: DateTimeWithAggregatesFilter<"SkuActivity"> | Date | string
+  }
+
+  export type SkuReplacementWhereInput = {
+    AND?: SkuReplacementWhereInput | SkuReplacementWhereInput[]
+    OR?: SkuReplacementWhereInput[]
+    NOT?: SkuReplacementWhereInput | SkuReplacementWhereInput[]
+    id?: UuidFilter<"SkuReplacement"> | string
+    oldSkuId?: UuidFilter<"SkuReplacement"> | string
+    replacementSkuId?: UuidFilter<"SkuReplacement"> | string
+    replacementType?: StringFilter<"SkuReplacement"> | string
+    transferDemand?: BoolFilter<"SkuReplacement"> | boolean
+    effectiveAt?: DateTimeFilter<"SkuReplacement"> | Date | string
+    retiredAt?: DateTimeNullableFilter<"SkuReplacement"> | Date | string | null
+    note?: StringNullableFilter<"SkuReplacement"> | string | null
+    createdAt?: DateTimeFilter<"SkuReplacement"> | Date | string
+    createdBy?: StringFilter<"SkuReplacement"> | string
+    updatedAt?: DateTimeFilter<"SkuReplacement"> | Date | string
+    updatedBy?: StringFilter<"SkuReplacement"> | string
+    oldSku?: XOR<SkuRelationFilter, SkuWhereInput>
+    replacementSku?: XOR<SkuRelationFilter, SkuWhereInput>
+  }
+
+  export type SkuReplacementOrderByWithRelationInput = {
+    id?: SortOrder
+    oldSkuId?: SortOrder
+    replacementSkuId?: SortOrder
+    replacementType?: SortOrder
+    transferDemand?: SortOrder
+    effectiveAt?: SortOrder
+    retiredAt?: SortOrderInput | SortOrder
+    note?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedBy?: SortOrder
+    oldSku?: SkuOrderByWithRelationInput
+    replacementSku?: SkuOrderByWithRelationInput
+  }
+
+  export type SkuReplacementWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: SkuReplacementWhereInput | SkuReplacementWhereInput[]
+    OR?: SkuReplacementWhereInput[]
+    NOT?: SkuReplacementWhereInput | SkuReplacementWhereInput[]
+    oldSkuId?: UuidFilter<"SkuReplacement"> | string
+    replacementSkuId?: UuidFilter<"SkuReplacement"> | string
+    replacementType?: StringFilter<"SkuReplacement"> | string
+    transferDemand?: BoolFilter<"SkuReplacement"> | boolean
+    effectiveAt?: DateTimeFilter<"SkuReplacement"> | Date | string
+    retiredAt?: DateTimeNullableFilter<"SkuReplacement"> | Date | string | null
+    note?: StringNullableFilter<"SkuReplacement"> | string | null
+    createdAt?: DateTimeFilter<"SkuReplacement"> | Date | string
+    createdBy?: StringFilter<"SkuReplacement"> | string
+    updatedAt?: DateTimeFilter<"SkuReplacement"> | Date | string
+    updatedBy?: StringFilter<"SkuReplacement"> | string
+    oldSku?: XOR<SkuRelationFilter, SkuWhereInput>
+    replacementSku?: XOR<SkuRelationFilter, SkuWhereInput>
+  }, "id">
+
+  export type SkuReplacementOrderByWithAggregationInput = {
+    id?: SortOrder
+    oldSkuId?: SortOrder
+    replacementSkuId?: SortOrder
+    replacementType?: SortOrder
+    transferDemand?: SortOrder
+    effectiveAt?: SortOrder
+    retiredAt?: SortOrderInput | SortOrder
+    note?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedBy?: SortOrder
+    _count?: SkuReplacementCountOrderByAggregateInput
+    _max?: SkuReplacementMaxOrderByAggregateInput
+    _min?: SkuReplacementMinOrderByAggregateInput
+  }
+
+  export type SkuReplacementScalarWhereWithAggregatesInput = {
+    AND?: SkuReplacementScalarWhereWithAggregatesInput | SkuReplacementScalarWhereWithAggregatesInput[]
+    OR?: SkuReplacementScalarWhereWithAggregatesInput[]
+    NOT?: SkuReplacementScalarWhereWithAggregatesInput | SkuReplacementScalarWhereWithAggregatesInput[]
+    id?: UuidWithAggregatesFilter<"SkuReplacement"> | string
+    oldSkuId?: UuidWithAggregatesFilter<"SkuReplacement"> | string
+    replacementSkuId?: UuidWithAggregatesFilter<"SkuReplacement"> | string
+    replacementType?: StringWithAggregatesFilter<"SkuReplacement"> | string
+    transferDemand?: BoolWithAggregatesFilter<"SkuReplacement"> | boolean
+    effectiveAt?: DateTimeWithAggregatesFilter<"SkuReplacement"> | Date | string
+    retiredAt?: DateTimeNullableWithAggregatesFilter<"SkuReplacement"> | Date | string | null
+    note?: StringNullableWithAggregatesFilter<"SkuReplacement"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"SkuReplacement"> | Date | string
+    createdBy?: StringWithAggregatesFilter<"SkuReplacement"> | string
+    updatedAt?: DateTimeWithAggregatesFilter<"SkuReplacement"> | Date | string
+    updatedBy?: StringWithAggregatesFilter<"SkuReplacement"> | string
   }
 
   export type SkuSizeWhereInput = {
@@ -251734,6 +253044,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuUncheckedCreateInput = {
@@ -251806,6 +253118,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUncheckedCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementUncheckedCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementUncheckedCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuUpdateInput = {
@@ -251878,6 +253192,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type SkuUncheckedUpdateInput = {
@@ -251950,6 +253266,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUncheckedUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUncheckedUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUncheckedUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type SkuCreateManyInput = {
@@ -252249,6 +253567,7 @@ export namespace Prisma {
   export type MatchingSetCreateInput = {
     id?: string
     code: string
+    displayName?: string | null
     descriptionEs?: string | null
     vendorStyle?: string | null
     materialCode?: string | null
@@ -252275,6 +253594,7 @@ export namespace Prisma {
   export type MatchingSetUncheckedCreateInput = {
     id?: string
     code: string
+    displayName?: string | null
     setTypeCode: string
     descriptionEs?: string | null
     vendorId?: string | null
@@ -252301,6 +253621,7 @@ export namespace Prisma {
   export type MatchingSetUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
+    displayName?: NullableStringFieldUpdateOperationsInput | string | null
     descriptionEs?: NullableStringFieldUpdateOperationsInput | string | null
     vendorStyle?: NullableStringFieldUpdateOperationsInput | string | null
     materialCode?: NullableStringFieldUpdateOperationsInput | string | null
@@ -252327,6 +253648,7 @@ export namespace Prisma {
   export type MatchingSetUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
+    displayName?: NullableStringFieldUpdateOperationsInput | string | null
     setTypeCode?: StringFieldUpdateOperationsInput | string
     descriptionEs?: NullableStringFieldUpdateOperationsInput | string | null
     vendorId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -252353,6 +253675,7 @@ export namespace Prisma {
   export type MatchingSetCreateManyInput = {
     id?: string
     code: string
+    displayName?: string | null
     setTypeCode: string
     descriptionEs?: string | null
     vendorId?: string | null
@@ -252376,6 +253699,7 @@ export namespace Prisma {
   export type MatchingSetUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
+    displayName?: NullableStringFieldUpdateOperationsInput | string | null
     descriptionEs?: NullableStringFieldUpdateOperationsInput | string | null
     vendorStyle?: NullableStringFieldUpdateOperationsInput | string | null
     materialCode?: NullableStringFieldUpdateOperationsInput | string | null
@@ -252396,6 +253720,7 @@ export namespace Prisma {
   export type MatchingSetUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
+    displayName?: NullableStringFieldUpdateOperationsInput | string | null
     setTypeCode?: StringFieldUpdateOperationsInput | string
     descriptionEs?: NullableStringFieldUpdateOperationsInput | string | null
     vendorId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -252964,6 +254289,109 @@ export namespace Prisma {
     actor?: StringFieldUpdateOperationsInput | string
     payloadJson?: NullableJsonNullValueInput | InputJsonValue
     occurredAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SkuReplacementCreateInput = {
+    id?: string
+    replacementType?: string
+    transferDemand?: boolean
+    effectiveAt?: Date | string
+    retiredAt?: Date | string | null
+    note?: string | null
+    createdAt?: Date | string
+    createdBy?: string
+    updatedAt?: Date | string
+    updatedBy?: string
+    oldSku: SkuCreateNestedOneWithoutReplacementsFromThisInput
+    replacementSku: SkuCreateNestedOneWithoutReplacementsToThisInput
+  }
+
+  export type SkuReplacementUncheckedCreateInput = {
+    id?: string
+    oldSkuId: string
+    replacementSkuId: string
+    replacementType?: string
+    transferDemand?: boolean
+    effectiveAt?: Date | string
+    retiredAt?: Date | string | null
+    note?: string | null
+    createdAt?: Date | string
+    createdBy?: string
+    updatedAt?: Date | string
+    updatedBy?: string
+  }
+
+  export type SkuReplacementUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    replacementType?: StringFieldUpdateOperationsInput | string
+    transferDemand?: BoolFieldUpdateOperationsInput | boolean
+    effectiveAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    retiredAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    oldSku?: SkuUpdateOneRequiredWithoutReplacementsFromThisNestedInput
+    replacementSku?: SkuUpdateOneRequiredWithoutReplacementsToThisNestedInput
+  }
+
+  export type SkuReplacementUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    oldSkuId?: StringFieldUpdateOperationsInput | string
+    replacementSkuId?: StringFieldUpdateOperationsInput | string
+    replacementType?: StringFieldUpdateOperationsInput | string
+    transferDemand?: BoolFieldUpdateOperationsInput | boolean
+    effectiveAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    retiredAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type SkuReplacementCreateManyInput = {
+    id?: string
+    oldSkuId: string
+    replacementSkuId: string
+    replacementType?: string
+    transferDemand?: boolean
+    effectiveAt?: Date | string
+    retiredAt?: Date | string | null
+    note?: string | null
+    createdAt?: Date | string
+    createdBy?: string
+    updatedAt?: Date | string
+    updatedBy?: string
+  }
+
+  export type SkuReplacementUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    replacementType?: StringFieldUpdateOperationsInput | string
+    transferDemand?: BoolFieldUpdateOperationsInput | boolean
+    effectiveAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    retiredAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type SkuReplacementUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    oldSkuId?: StringFieldUpdateOperationsInput | string
+    replacementSkuId?: StringFieldUpdateOperationsInput | string
+    replacementType?: StringFieldUpdateOperationsInput | string
+    transferDemand?: BoolFieldUpdateOperationsInput | boolean
+    effectiveAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    retiredAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
   export type SkuSizeCreateInput = {
@@ -270560,6 +271988,12 @@ export namespace Prisma {
     none?: ImportCostBuildWhereInput
   }
 
+  export type SkuReplacementListRelationFilter = {
+    every?: SkuReplacementWhereInput
+    some?: SkuReplacementWhereInput
+    none?: SkuReplacementWhereInput
+  }
+
   export type SkuActivityOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -270633,6 +272067,10 @@ export namespace Prisma {
   }
 
   export type ImportCostBuildOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type SkuReplacementOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -270908,6 +272346,7 @@ export namespace Prisma {
   export type MatchingSetCountOrderByAggregateInput = {
     id?: SortOrder
     code?: SortOrder
+    displayName?: SortOrder
     setTypeCode?: SortOrder
     descriptionEs?: SortOrder
     vendorId?: SortOrder
@@ -270931,6 +272370,7 @@ export namespace Prisma {
   export type MatchingSetMaxOrderByAggregateInput = {
     id?: SortOrder
     code?: SortOrder
+    displayName?: SortOrder
     setTypeCode?: SortOrder
     descriptionEs?: SortOrder
     vendorId?: SortOrder
@@ -270954,6 +272394,7 @@ export namespace Prisma {
   export type MatchingSetMinOrderByAggregateInput = {
     id?: SortOrder
     code?: SortOrder
+    displayName?: SortOrder
     setTypeCode?: SortOrder
     descriptionEs?: SortOrder
     vendorId?: SortOrder
@@ -271282,6 +272723,51 @@ export namespace Prisma {
     toState?: SortOrder
     actor?: SortOrder
     occurredAt?: SortOrder
+  }
+
+  export type SkuReplacementCountOrderByAggregateInput = {
+    id?: SortOrder
+    oldSkuId?: SortOrder
+    replacementSkuId?: SortOrder
+    replacementType?: SortOrder
+    transferDemand?: SortOrder
+    effectiveAt?: SortOrder
+    retiredAt?: SortOrder
+    note?: SortOrder
+    createdAt?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type SkuReplacementMaxOrderByAggregateInput = {
+    id?: SortOrder
+    oldSkuId?: SortOrder
+    replacementSkuId?: SortOrder
+    replacementType?: SortOrder
+    transferDemand?: SortOrder
+    effectiveAt?: SortOrder
+    retiredAt?: SortOrder
+    note?: SortOrder
+    createdAt?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type SkuReplacementMinOrderByAggregateInput = {
+    id?: SortOrder
+    oldSkuId?: SortOrder
+    replacementSkuId?: SortOrder
+    replacementType?: SortOrder
+    transferDemand?: SortOrder
+    effectiveAt?: SortOrder
+    retiredAt?: SortOrder
+    note?: SortOrder
+    createdAt?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedBy?: SortOrder
   }
 
   export type SkuSizeSkuIdSizeLabelCompoundUniqueInput = {
@@ -282551,6 +284037,20 @@ export namespace Prisma {
     connect?: SupplierQuotationLineRelationWhereUniqueInput | SupplierQuotationLineRelationWhereUniqueInput[]
   }
 
+  export type SkuReplacementCreateNestedManyWithoutOldSkuInput = {
+    create?: XOR<SkuReplacementCreateWithoutOldSkuInput, SkuReplacementUncheckedCreateWithoutOldSkuInput> | SkuReplacementCreateWithoutOldSkuInput[] | SkuReplacementUncheckedCreateWithoutOldSkuInput[]
+    connectOrCreate?: SkuReplacementCreateOrConnectWithoutOldSkuInput | SkuReplacementCreateOrConnectWithoutOldSkuInput[]
+    createMany?: SkuReplacementCreateManyOldSkuInputEnvelope
+    connect?: SkuReplacementWhereUniqueInput | SkuReplacementWhereUniqueInput[]
+  }
+
+  export type SkuReplacementCreateNestedManyWithoutReplacementSkuInput = {
+    create?: XOR<SkuReplacementCreateWithoutReplacementSkuInput, SkuReplacementUncheckedCreateWithoutReplacementSkuInput> | SkuReplacementCreateWithoutReplacementSkuInput[] | SkuReplacementUncheckedCreateWithoutReplacementSkuInput[]
+    connectOrCreate?: SkuReplacementCreateOrConnectWithoutReplacementSkuInput | SkuReplacementCreateOrConnectWithoutReplacementSkuInput[]
+    createMany?: SkuReplacementCreateManyReplacementSkuInputEnvelope
+    connect?: SkuReplacementWhereUniqueInput | SkuReplacementWhereUniqueInput[]
+  }
+
   export type SkuActivityUncheckedCreateNestedManyWithoutSkuInput = {
     create?: XOR<SkuActivityCreateWithoutSkuInput, SkuActivityUncheckedCreateWithoutSkuInput> | SkuActivityCreateWithoutSkuInput[] | SkuActivityUncheckedCreateWithoutSkuInput[]
     connectOrCreate?: SkuActivityCreateOrConnectWithoutSkuInput | SkuActivityCreateOrConnectWithoutSkuInput[]
@@ -282724,6 +284224,20 @@ export namespace Prisma {
     connectOrCreate?: SupplierQuotationLineRelationCreateOrConnectWithoutTargetSkuInput | SupplierQuotationLineRelationCreateOrConnectWithoutTargetSkuInput[]
     createMany?: SupplierQuotationLineRelationCreateManyTargetSkuInputEnvelope
     connect?: SupplierQuotationLineRelationWhereUniqueInput | SupplierQuotationLineRelationWhereUniqueInput[]
+  }
+
+  export type SkuReplacementUncheckedCreateNestedManyWithoutOldSkuInput = {
+    create?: XOR<SkuReplacementCreateWithoutOldSkuInput, SkuReplacementUncheckedCreateWithoutOldSkuInput> | SkuReplacementCreateWithoutOldSkuInput[] | SkuReplacementUncheckedCreateWithoutOldSkuInput[]
+    connectOrCreate?: SkuReplacementCreateOrConnectWithoutOldSkuInput | SkuReplacementCreateOrConnectWithoutOldSkuInput[]
+    createMany?: SkuReplacementCreateManyOldSkuInputEnvelope
+    connect?: SkuReplacementWhereUniqueInput | SkuReplacementWhereUniqueInput[]
+  }
+
+  export type SkuReplacementUncheckedCreateNestedManyWithoutReplacementSkuInput = {
+    create?: XOR<SkuReplacementCreateWithoutReplacementSkuInput, SkuReplacementUncheckedCreateWithoutReplacementSkuInput> | SkuReplacementCreateWithoutReplacementSkuInput[] | SkuReplacementUncheckedCreateWithoutReplacementSkuInput[]
+    connectOrCreate?: SkuReplacementCreateOrConnectWithoutReplacementSkuInput | SkuReplacementCreateOrConnectWithoutReplacementSkuInput[]
+    createMany?: SkuReplacementCreateManyReplacementSkuInputEnvelope
+    connect?: SkuReplacementWhereUniqueInput | SkuReplacementWhereUniqueInput[]
   }
 
   export type ProductFamilyUpdateOneWithoutSkusNestedInput = {
@@ -283086,6 +284600,34 @@ export namespace Prisma {
     deleteMany?: SupplierQuotationLineRelationScalarWhereInput | SupplierQuotationLineRelationScalarWhereInput[]
   }
 
+  export type SkuReplacementUpdateManyWithoutOldSkuNestedInput = {
+    create?: XOR<SkuReplacementCreateWithoutOldSkuInput, SkuReplacementUncheckedCreateWithoutOldSkuInput> | SkuReplacementCreateWithoutOldSkuInput[] | SkuReplacementUncheckedCreateWithoutOldSkuInput[]
+    connectOrCreate?: SkuReplacementCreateOrConnectWithoutOldSkuInput | SkuReplacementCreateOrConnectWithoutOldSkuInput[]
+    upsert?: SkuReplacementUpsertWithWhereUniqueWithoutOldSkuInput | SkuReplacementUpsertWithWhereUniqueWithoutOldSkuInput[]
+    createMany?: SkuReplacementCreateManyOldSkuInputEnvelope
+    set?: SkuReplacementWhereUniqueInput | SkuReplacementWhereUniqueInput[]
+    disconnect?: SkuReplacementWhereUniqueInput | SkuReplacementWhereUniqueInput[]
+    delete?: SkuReplacementWhereUniqueInput | SkuReplacementWhereUniqueInput[]
+    connect?: SkuReplacementWhereUniqueInput | SkuReplacementWhereUniqueInput[]
+    update?: SkuReplacementUpdateWithWhereUniqueWithoutOldSkuInput | SkuReplacementUpdateWithWhereUniqueWithoutOldSkuInput[]
+    updateMany?: SkuReplacementUpdateManyWithWhereWithoutOldSkuInput | SkuReplacementUpdateManyWithWhereWithoutOldSkuInput[]
+    deleteMany?: SkuReplacementScalarWhereInput | SkuReplacementScalarWhereInput[]
+  }
+
+  export type SkuReplacementUpdateManyWithoutReplacementSkuNestedInput = {
+    create?: XOR<SkuReplacementCreateWithoutReplacementSkuInput, SkuReplacementUncheckedCreateWithoutReplacementSkuInput> | SkuReplacementCreateWithoutReplacementSkuInput[] | SkuReplacementUncheckedCreateWithoutReplacementSkuInput[]
+    connectOrCreate?: SkuReplacementCreateOrConnectWithoutReplacementSkuInput | SkuReplacementCreateOrConnectWithoutReplacementSkuInput[]
+    upsert?: SkuReplacementUpsertWithWhereUniqueWithoutReplacementSkuInput | SkuReplacementUpsertWithWhereUniqueWithoutReplacementSkuInput[]
+    createMany?: SkuReplacementCreateManyReplacementSkuInputEnvelope
+    set?: SkuReplacementWhereUniqueInput | SkuReplacementWhereUniqueInput[]
+    disconnect?: SkuReplacementWhereUniqueInput | SkuReplacementWhereUniqueInput[]
+    delete?: SkuReplacementWhereUniqueInput | SkuReplacementWhereUniqueInput[]
+    connect?: SkuReplacementWhereUniqueInput | SkuReplacementWhereUniqueInput[]
+    update?: SkuReplacementUpdateWithWhereUniqueWithoutReplacementSkuInput | SkuReplacementUpdateWithWhereUniqueWithoutReplacementSkuInput[]
+    updateMany?: SkuReplacementUpdateManyWithWhereWithoutReplacementSkuInput | SkuReplacementUpdateManyWithWhereWithoutReplacementSkuInput[]
+    deleteMany?: SkuReplacementScalarWhereInput | SkuReplacementScalarWhereInput[]
+  }
+
   export type SkuActivityUncheckedUpdateManyWithoutSkuNestedInput = {
     create?: XOR<SkuActivityCreateWithoutSkuInput, SkuActivityUncheckedCreateWithoutSkuInput> | SkuActivityCreateWithoutSkuInput[] | SkuActivityUncheckedCreateWithoutSkuInput[]
     connectOrCreate?: SkuActivityCreateOrConnectWithoutSkuInput | SkuActivityCreateOrConnectWithoutSkuInput[]
@@ -283434,6 +284976,34 @@ export namespace Prisma {
     update?: SupplierQuotationLineRelationUpdateWithWhereUniqueWithoutTargetSkuInput | SupplierQuotationLineRelationUpdateWithWhereUniqueWithoutTargetSkuInput[]
     updateMany?: SupplierQuotationLineRelationUpdateManyWithWhereWithoutTargetSkuInput | SupplierQuotationLineRelationUpdateManyWithWhereWithoutTargetSkuInput[]
     deleteMany?: SupplierQuotationLineRelationScalarWhereInput | SupplierQuotationLineRelationScalarWhereInput[]
+  }
+
+  export type SkuReplacementUncheckedUpdateManyWithoutOldSkuNestedInput = {
+    create?: XOR<SkuReplacementCreateWithoutOldSkuInput, SkuReplacementUncheckedCreateWithoutOldSkuInput> | SkuReplacementCreateWithoutOldSkuInput[] | SkuReplacementUncheckedCreateWithoutOldSkuInput[]
+    connectOrCreate?: SkuReplacementCreateOrConnectWithoutOldSkuInput | SkuReplacementCreateOrConnectWithoutOldSkuInput[]
+    upsert?: SkuReplacementUpsertWithWhereUniqueWithoutOldSkuInput | SkuReplacementUpsertWithWhereUniqueWithoutOldSkuInput[]
+    createMany?: SkuReplacementCreateManyOldSkuInputEnvelope
+    set?: SkuReplacementWhereUniqueInput | SkuReplacementWhereUniqueInput[]
+    disconnect?: SkuReplacementWhereUniqueInput | SkuReplacementWhereUniqueInput[]
+    delete?: SkuReplacementWhereUniqueInput | SkuReplacementWhereUniqueInput[]
+    connect?: SkuReplacementWhereUniqueInput | SkuReplacementWhereUniqueInput[]
+    update?: SkuReplacementUpdateWithWhereUniqueWithoutOldSkuInput | SkuReplacementUpdateWithWhereUniqueWithoutOldSkuInput[]
+    updateMany?: SkuReplacementUpdateManyWithWhereWithoutOldSkuInput | SkuReplacementUpdateManyWithWhereWithoutOldSkuInput[]
+    deleteMany?: SkuReplacementScalarWhereInput | SkuReplacementScalarWhereInput[]
+  }
+
+  export type SkuReplacementUncheckedUpdateManyWithoutReplacementSkuNestedInput = {
+    create?: XOR<SkuReplacementCreateWithoutReplacementSkuInput, SkuReplacementUncheckedCreateWithoutReplacementSkuInput> | SkuReplacementCreateWithoutReplacementSkuInput[] | SkuReplacementUncheckedCreateWithoutReplacementSkuInput[]
+    connectOrCreate?: SkuReplacementCreateOrConnectWithoutReplacementSkuInput | SkuReplacementCreateOrConnectWithoutReplacementSkuInput[]
+    upsert?: SkuReplacementUpsertWithWhereUniqueWithoutReplacementSkuInput | SkuReplacementUpsertWithWhereUniqueWithoutReplacementSkuInput[]
+    createMany?: SkuReplacementCreateManyReplacementSkuInputEnvelope
+    set?: SkuReplacementWhereUniqueInput | SkuReplacementWhereUniqueInput[]
+    disconnect?: SkuReplacementWhereUniqueInput | SkuReplacementWhereUniqueInput[]
+    delete?: SkuReplacementWhereUniqueInput | SkuReplacementWhereUniqueInput[]
+    connect?: SkuReplacementWhereUniqueInput | SkuReplacementWhereUniqueInput[]
+    update?: SkuReplacementUpdateWithWhereUniqueWithoutReplacementSkuInput | SkuReplacementUpdateWithWhereUniqueWithoutReplacementSkuInput[]
+    updateMany?: SkuReplacementUpdateManyWithWhereWithoutReplacementSkuInput | SkuReplacementUpdateManyWithWhereWithoutReplacementSkuInput[]
+    deleteMany?: SkuReplacementScalarWhereInput | SkuReplacementScalarWhereInput[]
   }
 
   export type MatchingSetRoleCreateNestedManyWithoutSetTypeInput = {
@@ -284006,6 +285576,34 @@ export namespace Prisma {
     upsert?: SkuUpsertWithoutActivityInput
     connect?: SkuWhereUniqueInput
     update?: XOR<XOR<SkuUpdateToOneWithWhereWithoutActivityInput, SkuUpdateWithoutActivityInput>, SkuUncheckedUpdateWithoutActivityInput>
+  }
+
+  export type SkuCreateNestedOneWithoutReplacementsFromThisInput = {
+    create?: XOR<SkuCreateWithoutReplacementsFromThisInput, SkuUncheckedCreateWithoutReplacementsFromThisInput>
+    connectOrCreate?: SkuCreateOrConnectWithoutReplacementsFromThisInput
+    connect?: SkuWhereUniqueInput
+  }
+
+  export type SkuCreateNestedOneWithoutReplacementsToThisInput = {
+    create?: XOR<SkuCreateWithoutReplacementsToThisInput, SkuUncheckedCreateWithoutReplacementsToThisInput>
+    connectOrCreate?: SkuCreateOrConnectWithoutReplacementsToThisInput
+    connect?: SkuWhereUniqueInput
+  }
+
+  export type SkuUpdateOneRequiredWithoutReplacementsFromThisNestedInput = {
+    create?: XOR<SkuCreateWithoutReplacementsFromThisInput, SkuUncheckedCreateWithoutReplacementsFromThisInput>
+    connectOrCreate?: SkuCreateOrConnectWithoutReplacementsFromThisInput
+    upsert?: SkuUpsertWithoutReplacementsFromThisInput
+    connect?: SkuWhereUniqueInput
+    update?: XOR<XOR<SkuUpdateToOneWithWhereWithoutReplacementsFromThisInput, SkuUpdateWithoutReplacementsFromThisInput>, SkuUncheckedUpdateWithoutReplacementsFromThisInput>
+  }
+
+  export type SkuUpdateOneRequiredWithoutReplacementsToThisNestedInput = {
+    create?: XOR<SkuCreateWithoutReplacementsToThisInput, SkuUncheckedCreateWithoutReplacementsToThisInput>
+    connectOrCreate?: SkuCreateOrConnectWithoutReplacementsToThisInput
+    upsert?: SkuUpsertWithoutReplacementsToThisInput
+    connect?: SkuWhereUniqueInput
+    update?: XOR<XOR<SkuUpdateToOneWithWhereWithoutReplacementsToThisInput, SkuUpdateWithoutReplacementsToThisInput>, SkuUncheckedUpdateWithoutReplacementsToThisInput>
   }
 
   export type SkuCreateNestedOneWithoutSizesInput = {
@@ -293222,6 +294820,7 @@ export namespace Prisma {
   export type MatchingSetCreateWithoutVendorInput = {
     id?: string
     code: string
+    displayName?: string | null
     descriptionEs?: string | null
     vendorStyle?: string | null
     materialCode?: string | null
@@ -293247,6 +294846,7 @@ export namespace Prisma {
   export type MatchingSetUncheckedCreateWithoutVendorInput = {
     id?: string
     code: string
+    displayName?: string | null
     setTypeCode: string
     descriptionEs?: string | null
     vendorStyle?: string | null
@@ -293389,6 +294989,7 @@ export namespace Prisma {
     NOT?: MatchingSetScalarWhereInput | MatchingSetScalarWhereInput[]
     id?: UuidFilter<"MatchingSet"> | string
     code?: StringFilter<"MatchingSet"> | string
+    displayName?: StringNullableFilter<"MatchingSet"> | string | null
     setTypeCode?: StringFilter<"MatchingSet"> | string
     descriptionEs?: StringNullableFilter<"MatchingSet"> | string | null
     vendorId?: StringNullableFilter<"MatchingSet"> | string | null
@@ -293642,6 +295243,7 @@ export namespace Prisma {
   export type MatchingSetCreateWithoutChainInput = {
     id?: string
     code: string
+    displayName?: string | null
     descriptionEs?: string | null
     vendorStyle?: string | null
     materialCode?: string | null
@@ -293667,6 +295269,7 @@ export namespace Prisma {
   export type MatchingSetUncheckedCreateWithoutChainInput = {
     id?: string
     code: string
+    displayName?: string | null
     setTypeCode: string
     descriptionEs?: string | null
     vendorId?: string | null
@@ -295550,6 +297153,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuUncheckedCreateWithoutUpcsInput = {
@@ -295621,6 +297226,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUncheckedCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementUncheckedCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementUncheckedCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuCreateOrConnectWithoutUpcsInput = {
@@ -295708,6 +297315,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type SkuUncheckedUpdateWithoutUpcsInput = {
@@ -295779,6 +297388,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUncheckedUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUncheckedUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUncheckedUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type CasePackCellCreateWithoutCasePackInput = {
@@ -295946,6 +297557,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuUncheckedCreateWithoutFuturePriceChangesInput = {
@@ -296017,6 +297630,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUncheckedCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementUncheckedCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementUncheckedCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuCreateOrConnectWithoutFuturePriceChangesInput = {
@@ -296104,6 +297719,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type SkuUncheckedUpdateWithoutFuturePriceChangesInput = {
@@ -296175,6 +297792,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUncheckedUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUncheckedUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUncheckedUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type PurchaseOrderLegacyLineCreateWithoutPurchaseOrderInput = {
@@ -296391,6 +298010,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuUncheckedCreateWithoutPurchaseOrderLegacyLinesInput = {
@@ -296462,6 +298083,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUncheckedCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementUncheckedCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementUncheckedCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuCreateOrConnectWithoutPurchaseOrderLegacyLinesInput = {
@@ -296628,6 +298251,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type SkuUncheckedUpdateWithoutPurchaseOrderLegacyLinesInput = {
@@ -296699,6 +298324,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUncheckedUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUncheckedUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUncheckedUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type SupplierQuotationCreateWithoutPurchaseOrdersInput = {
@@ -297272,6 +298899,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuUncheckedCreateWithoutPurchaseOrderLinesInput = {
@@ -297343,6 +298972,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUncheckedCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementUncheckedCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementUncheckedCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuCreateOrConnectWithoutPurchaseOrderLinesInput = {
@@ -297808,6 +299439,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type SkuUncheckedUpdateWithoutPurchaseOrderLinesInput = {
@@ -297879,6 +299512,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUncheckedUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUncheckedUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUncheckedUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type SupplierQuotationLineUpsertWithoutPurchaseOrderLinesInput = {
@@ -298839,6 +300474,8 @@ export namespace Prisma {
     matchingSetMembers?: MatchingSetMemberCreateNestedManyWithoutSkuInput
     importCostBuildOutputs?: ImportCostBuildCreateNestedManyWithoutOutputSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuUncheckedCreateWithoutSupplierQuotationLinesInput = {
@@ -298910,6 +300547,8 @@ export namespace Prisma {
     matchingSetMembers?: MatchingSetMemberUncheckedCreateNestedManyWithoutSkuInput
     importCostBuildOutputs?: ImportCostBuildUncheckedCreateNestedManyWithoutOutputSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementUncheckedCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementUncheckedCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuCreateOrConnectWithoutSupplierQuotationLinesInput = {
@@ -299332,6 +300971,8 @@ export namespace Prisma {
     matchingSetMembers?: MatchingSetMemberUpdateManyWithoutSkuNestedInput
     importCostBuildOutputs?: ImportCostBuildUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type SkuUncheckedUpdateWithoutSupplierQuotationLinesInput = {
@@ -299403,6 +301044,8 @@ export namespace Prisma {
     matchingSetMembers?: MatchingSetMemberUncheckedUpdateManyWithoutSkuNestedInput
     importCostBuildOutputs?: ImportCostBuildUncheckedUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUncheckedUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUncheckedUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type ProductFamilyUpsertWithoutSupplierQuotationLinesInput = {
@@ -299791,6 +301434,8 @@ export namespace Prisma {
     matchingSetMembers?: MatchingSetMemberCreateNestedManyWithoutSkuInput
     importCostBuildOutputs?: ImportCostBuildCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineCreateNestedManyWithoutLinkedSkuInput
+    replacementsFromThis?: SkuReplacementCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuUncheckedCreateWithoutSupplierQuotationRelationsInput = {
@@ -299862,6 +301507,8 @@ export namespace Prisma {
     matchingSetMembers?: MatchingSetMemberUncheckedCreateNestedManyWithoutSkuInput
     importCostBuildOutputs?: ImportCostBuildUncheckedCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedCreateNestedManyWithoutLinkedSkuInput
+    replacementsFromThis?: SkuReplacementUncheckedCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementUncheckedCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuCreateOrConnectWithoutSupplierQuotationRelationsInput = {
@@ -299872,6 +301519,7 @@ export namespace Prisma {
   export type MatchingSetCreateWithoutSupplierQuotationRelationsInput = {
     id?: string
     code: string
+    displayName?: string | null
     descriptionEs?: string | null
     vendorStyle?: string | null
     materialCode?: string | null
@@ -299897,6 +301545,7 @@ export namespace Prisma {
   export type MatchingSetUncheckedCreateWithoutSupplierQuotationRelationsInput = {
     id?: string
     code: string
+    displayName?: string | null
     setTypeCode: string
     descriptionEs?: string | null
     vendorId?: string | null
@@ -300160,6 +301809,8 @@ export namespace Prisma {
     matchingSetMembers?: MatchingSetMemberUpdateManyWithoutSkuNestedInput
     importCostBuildOutputs?: ImportCostBuildUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUpdateManyWithoutLinkedSkuNestedInput
+    replacementsFromThis?: SkuReplacementUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type SkuUncheckedUpdateWithoutSupplierQuotationRelationsInput = {
@@ -300231,6 +301882,8 @@ export namespace Prisma {
     matchingSetMembers?: MatchingSetMemberUncheckedUpdateManyWithoutSkuNestedInput
     importCostBuildOutputs?: ImportCostBuildUncheckedUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedUpdateManyWithoutLinkedSkuNestedInput
+    replacementsFromThis?: SkuReplacementUncheckedUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUncheckedUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type MatchingSetUpsertWithoutSupplierQuotationRelationsInput = {
@@ -300247,6 +301900,7 @@ export namespace Prisma {
   export type MatchingSetUpdateWithoutSupplierQuotationRelationsInput = {
     id?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
+    displayName?: NullableStringFieldUpdateOperationsInput | string | null
     descriptionEs?: NullableStringFieldUpdateOperationsInput | string | null
     vendorStyle?: NullableStringFieldUpdateOperationsInput | string | null
     materialCode?: NullableStringFieldUpdateOperationsInput | string | null
@@ -300272,6 +301926,7 @@ export namespace Prisma {
   export type MatchingSetUncheckedUpdateWithoutSupplierQuotationRelationsInput = {
     id?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
+    displayName?: NullableStringFieldUpdateOperationsInput | string | null
     setTypeCode?: StringFieldUpdateOperationsInput | string
     descriptionEs?: NullableStringFieldUpdateOperationsInput | string | null
     vendorId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -300792,6 +302447,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuUncheckedCreateWithoutPoReceiptLinesInput = {
@@ -300863,6 +302520,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUncheckedCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementUncheckedCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementUncheckedCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuCreateOrConnectWithoutPoReceiptLinesInput = {
@@ -301291,6 +302950,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type SkuUncheckedUpdateWithoutPoReceiptLinesInput = {
@@ -301362,6 +303023,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUncheckedUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUncheckedUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUncheckedUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type ImportShipmentUpsertWithoutPoReceiptLinesInput = {
@@ -302146,6 +303809,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuUncheckedCreateWithoutFamilyInput = {
@@ -302217,6 +303882,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUncheckedCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementUncheckedCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementUncheckedCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuCreateOrConnectWithoutFamilyInput = {
@@ -303757,6 +305424,82 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type SkuReplacementCreateWithoutOldSkuInput = {
+    id?: string
+    replacementType?: string
+    transferDemand?: boolean
+    effectiveAt?: Date | string
+    retiredAt?: Date | string | null
+    note?: string | null
+    createdAt?: Date | string
+    createdBy?: string
+    updatedAt?: Date | string
+    updatedBy?: string
+    replacementSku: SkuCreateNestedOneWithoutReplacementsToThisInput
+  }
+
+  export type SkuReplacementUncheckedCreateWithoutOldSkuInput = {
+    id?: string
+    replacementSkuId: string
+    replacementType?: string
+    transferDemand?: boolean
+    effectiveAt?: Date | string
+    retiredAt?: Date | string | null
+    note?: string | null
+    createdAt?: Date | string
+    createdBy?: string
+    updatedAt?: Date | string
+    updatedBy?: string
+  }
+
+  export type SkuReplacementCreateOrConnectWithoutOldSkuInput = {
+    where: SkuReplacementWhereUniqueInput
+    create: XOR<SkuReplacementCreateWithoutOldSkuInput, SkuReplacementUncheckedCreateWithoutOldSkuInput>
+  }
+
+  export type SkuReplacementCreateManyOldSkuInputEnvelope = {
+    data: SkuReplacementCreateManyOldSkuInput | SkuReplacementCreateManyOldSkuInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type SkuReplacementCreateWithoutReplacementSkuInput = {
+    id?: string
+    replacementType?: string
+    transferDemand?: boolean
+    effectiveAt?: Date | string
+    retiredAt?: Date | string | null
+    note?: string | null
+    createdAt?: Date | string
+    createdBy?: string
+    updatedAt?: Date | string
+    updatedBy?: string
+    oldSku: SkuCreateNestedOneWithoutReplacementsFromThisInput
+  }
+
+  export type SkuReplacementUncheckedCreateWithoutReplacementSkuInput = {
+    id?: string
+    oldSkuId: string
+    replacementType?: string
+    transferDemand?: boolean
+    effectiveAt?: Date | string
+    retiredAt?: Date | string | null
+    note?: string | null
+    createdAt?: Date | string
+    createdBy?: string
+    updatedAt?: Date | string
+    updatedBy?: string
+  }
+
+  export type SkuReplacementCreateOrConnectWithoutReplacementSkuInput = {
+    where: SkuReplacementWhereUniqueInput
+    create: XOR<SkuReplacementCreateWithoutReplacementSkuInput, SkuReplacementUncheckedCreateWithoutReplacementSkuInput>
+  }
+
+  export type SkuReplacementCreateManyReplacementSkuInputEnvelope = {
+    data: SkuReplacementCreateManyReplacementSkuInput | SkuReplacementCreateManyReplacementSkuInput[]
+    skipDuplicates?: boolean
+  }
+
   export type ProductFamilyUpsertWithoutSkusInput = {
     update: XOR<ProductFamilyUpdateWithoutSkusInput, ProductFamilyUncheckedUpdateWithoutSkusInput>
     create: XOR<ProductFamilyCreateWithoutSkusInput, ProductFamilyUncheckedCreateWithoutSkusInput>
@@ -304552,6 +306295,56 @@ export namespace Prisma {
     data: XOR<SupplierQuotationLineRelationUpdateManyMutationInput, SupplierQuotationLineRelationUncheckedUpdateManyWithoutTargetSkuInput>
   }
 
+  export type SkuReplacementUpsertWithWhereUniqueWithoutOldSkuInput = {
+    where: SkuReplacementWhereUniqueInput
+    update: XOR<SkuReplacementUpdateWithoutOldSkuInput, SkuReplacementUncheckedUpdateWithoutOldSkuInput>
+    create: XOR<SkuReplacementCreateWithoutOldSkuInput, SkuReplacementUncheckedCreateWithoutOldSkuInput>
+  }
+
+  export type SkuReplacementUpdateWithWhereUniqueWithoutOldSkuInput = {
+    where: SkuReplacementWhereUniqueInput
+    data: XOR<SkuReplacementUpdateWithoutOldSkuInput, SkuReplacementUncheckedUpdateWithoutOldSkuInput>
+  }
+
+  export type SkuReplacementUpdateManyWithWhereWithoutOldSkuInput = {
+    where: SkuReplacementScalarWhereInput
+    data: XOR<SkuReplacementUpdateManyMutationInput, SkuReplacementUncheckedUpdateManyWithoutOldSkuInput>
+  }
+
+  export type SkuReplacementScalarWhereInput = {
+    AND?: SkuReplacementScalarWhereInput | SkuReplacementScalarWhereInput[]
+    OR?: SkuReplacementScalarWhereInput[]
+    NOT?: SkuReplacementScalarWhereInput | SkuReplacementScalarWhereInput[]
+    id?: UuidFilter<"SkuReplacement"> | string
+    oldSkuId?: UuidFilter<"SkuReplacement"> | string
+    replacementSkuId?: UuidFilter<"SkuReplacement"> | string
+    replacementType?: StringFilter<"SkuReplacement"> | string
+    transferDemand?: BoolFilter<"SkuReplacement"> | boolean
+    effectiveAt?: DateTimeFilter<"SkuReplacement"> | Date | string
+    retiredAt?: DateTimeNullableFilter<"SkuReplacement"> | Date | string | null
+    note?: StringNullableFilter<"SkuReplacement"> | string | null
+    createdAt?: DateTimeFilter<"SkuReplacement"> | Date | string
+    createdBy?: StringFilter<"SkuReplacement"> | string
+    updatedAt?: DateTimeFilter<"SkuReplacement"> | Date | string
+    updatedBy?: StringFilter<"SkuReplacement"> | string
+  }
+
+  export type SkuReplacementUpsertWithWhereUniqueWithoutReplacementSkuInput = {
+    where: SkuReplacementWhereUniqueInput
+    update: XOR<SkuReplacementUpdateWithoutReplacementSkuInput, SkuReplacementUncheckedUpdateWithoutReplacementSkuInput>
+    create: XOR<SkuReplacementCreateWithoutReplacementSkuInput, SkuReplacementUncheckedCreateWithoutReplacementSkuInput>
+  }
+
+  export type SkuReplacementUpdateWithWhereUniqueWithoutReplacementSkuInput = {
+    where: SkuReplacementWhereUniqueInput
+    data: XOR<SkuReplacementUpdateWithoutReplacementSkuInput, SkuReplacementUncheckedUpdateWithoutReplacementSkuInput>
+  }
+
+  export type SkuReplacementUpdateManyWithWhereWithoutReplacementSkuInput = {
+    where: SkuReplacementScalarWhereInput
+    data: XOR<SkuReplacementUpdateManyMutationInput, SkuReplacementUncheckedUpdateManyWithoutReplacementSkuInput>
+  }
+
   export type MatchingSetRoleCreateWithoutSetTypeInput = {
     code: string
     labelEs: string
@@ -304585,6 +306378,7 @@ export namespace Prisma {
   export type MatchingSetCreateWithoutSetTypeInput = {
     id?: string
     code: string
+    displayName?: string | null
     descriptionEs?: string | null
     vendorStyle?: string | null
     materialCode?: string | null
@@ -304610,6 +306404,7 @@ export namespace Prisma {
   export type MatchingSetUncheckedCreateWithoutSetTypeInput = {
     id?: string
     code: string
+    displayName?: string | null
     descriptionEs?: string | null
     vendorId?: string | null
     vendorStyle?: string | null
@@ -305169,6 +306964,7 @@ export namespace Prisma {
   export type MatchingSetCreateWithoutMembersInput = {
     id?: string
     code: string
+    displayName?: string | null
     descriptionEs?: string | null
     vendorStyle?: string | null
     materialCode?: string | null
@@ -305194,6 +306990,7 @@ export namespace Prisma {
   export type MatchingSetUncheckedCreateWithoutMembersInput = {
     id?: string
     code: string
+    displayName?: string | null
     setTypeCode: string
     descriptionEs?: string | null
     vendorId?: string | null
@@ -305290,6 +307087,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuUncheckedCreateWithoutMatchingSetMembersInput = {
@@ -305361,6 +307160,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUncheckedCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementUncheckedCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementUncheckedCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuCreateOrConnectWithoutMatchingSetMembersInput = {
@@ -305473,6 +307274,7 @@ export namespace Prisma {
   export type MatchingSetUpdateWithoutMembersInput = {
     id?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
+    displayName?: NullableStringFieldUpdateOperationsInput | string | null
     descriptionEs?: NullableStringFieldUpdateOperationsInput | string | null
     vendorStyle?: NullableStringFieldUpdateOperationsInput | string | null
     materialCode?: NullableStringFieldUpdateOperationsInput | string | null
@@ -305498,6 +307300,7 @@ export namespace Prisma {
   export type MatchingSetUncheckedUpdateWithoutMembersInput = {
     id?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
+    displayName?: NullableStringFieldUpdateOperationsInput | string | null
     setTypeCode?: StringFieldUpdateOperationsInput | string
     descriptionEs?: NullableStringFieldUpdateOperationsInput | string | null
     vendorId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -305600,6 +307403,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type SkuUncheckedUpdateWithoutMatchingSetMembersInput = {
@@ -305671,6 +307476,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUncheckedUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUncheckedUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUncheckedUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type MatchingSetMemberSizeCurveUpsertWithWhereUniqueWithoutMemberInput = {
@@ -305848,6 +307655,7 @@ export namespace Prisma {
   export type MatchingSetCreateWithoutBuyPlansInput = {
     id?: string
     code: string
+    displayName?: string | null
     descriptionEs?: string | null
     vendorStyle?: string | null
     materialCode?: string | null
@@ -305873,6 +307681,7 @@ export namespace Prisma {
   export type MatchingSetUncheckedCreateWithoutBuyPlansInput = {
     id?: string
     code: string
+    displayName?: string | null
     setTypeCode: string
     descriptionEs?: string | null
     vendorId?: string | null
@@ -306094,6 +307903,7 @@ export namespace Prisma {
   export type MatchingSetUpdateWithoutBuyPlansInput = {
     id?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
+    displayName?: NullableStringFieldUpdateOperationsInput | string | null
     descriptionEs?: NullableStringFieldUpdateOperationsInput | string | null
     vendorStyle?: NullableStringFieldUpdateOperationsInput | string | null
     materialCode?: NullableStringFieldUpdateOperationsInput | string | null
@@ -306119,6 +307929,7 @@ export namespace Prisma {
   export type MatchingSetUncheckedUpdateWithoutBuyPlansInput = {
     id?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
+    displayName?: NullableStringFieldUpdateOperationsInput | string | null
     setTypeCode?: StringFieldUpdateOperationsInput | string
     descriptionEs?: NullableStringFieldUpdateOperationsInput | string | null
     vendorId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -306434,6 +308245,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuUncheckedCreateWithoutMatchingSetBuyPlanLinesInput = {
@@ -306505,6 +308318,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUncheckedCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementUncheckedCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementUncheckedCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuCreateOrConnectWithoutMatchingSetBuyPlanLinesInput = {
@@ -306725,6 +308540,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type SkuUncheckedUpdateWithoutMatchingSetBuyPlanLinesInput = {
@@ -306796,6 +308613,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUncheckedUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUncheckedUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUncheckedUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type PurchaseOrderLineUpsertWithoutMatchingSetPlanLinesInput = {
@@ -306924,6 +308743,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuUncheckedCreateWithoutActivityInput = {
@@ -306995,6 +308816,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUncheckedCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementUncheckedCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementUncheckedCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuCreateOrConnectWithoutActivityInput = {
@@ -307082,6 +308905,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type SkuUncheckedUpdateWithoutActivityInput = {
@@ -307153,6 +308978,624 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUncheckedUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUncheckedUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUncheckedUpdateManyWithoutReplacementSkuNestedInput
+  }
+
+  export type SkuCreateWithoutReplacementsFromThisInput = {
+    id?: string
+    provisionalCode: string
+    code?: string | null
+    skuState?: string
+    categoryNumber?: number | null
+    vendorId?: string | null
+    vendorSku?: string | null
+    brandId?: number | null
+    descriptionRics?: string | null
+    descriptionWeb?: string | null
+    comment?: string | null
+    keywords?: string | null
+    listPrice?: Decimal | DecimalJsLike | number | string | null
+    retailPrice?: Decimal | DecimalJsLike | number | string | null
+    markDownPrice1?: Decimal | DecimalJsLike | number | string | null
+    markDownPrice2?: Decimal | DecimalJsLike | number | string | null
+    currentCost?: Decimal | DecimalJsLike | number | string | null
+    currentPriceSlot?: string | null
+    sizeType?: number | null
+    styleColor?: string | null
+    season?: string | null
+    location?: string | null
+    labelCode?: string | null
+    colorCode?: string | null
+    groupCode?: string | null
+    pictureFileName?: string | null
+    manufacturer?: string | null
+    coupon?: boolean
+    orderMultiple?: number | null
+    orderUom?: string | null
+    perks?: Decimal | DecimalJsLike | number | string | null
+    discountCode?: string | null
+    activatedAt?: Date | string | null
+    activatedBy?: string | null
+    discontinuedAt?: Date | string | null
+    discontinuedBy?: string | null
+    createdAt?: Date | string
+    createdBy: string
+    updatedAt?: Date | string | null
+    legacyAttrs?: NullableJsonNullValueInput | InputJsonValue
+    source?: string
+    ricsLastSyncedAt?: Date | string | null
+    ricsStatus?: string | null
+    family?: ProductFamilyCreateNestedOneWithoutSkusInput
+    activity?: SkuActivityCreateNestedManyWithoutSkuInput
+    sizes?: SkuSizeCreateNestedManyWithoutSkuInput
+    inventory?: InventoryCreateNestedManyWithoutSkuInput
+    auditLog?: InventoryAuditLogCreateNestedManyWithoutSkuInput
+    stockLevels?: StockLevelCreateNestedManyWithoutSkuInput
+    stockMovements?: StockMovementCreateNestedManyWithoutSkuInput
+    stockCostEvents?: StockCostEventCreateNestedManyWithoutSkuInput
+    stockCostBalances?: StockCostBalanceCreateNestedManyWithoutSkuInput
+    replenishmentTargets?: ReplenishmentTargetCreateNestedManyWithoutSkuInput
+    inventorySalesCells?: InventorySalesCellCreateNestedManyWithoutSkuInput
+    upcs?: SkuUpcCreateNestedManyWithoutSkuInput
+    futurePriceChanges?: FuturePriceChangeCreateNestedManyWithoutSkuInput
+    purchaseOrderLines?: PurchaseOrderLineCreateNestedManyWithoutSkuInput
+    poReceiptLines?: PoReceiptLineCreateNestedManyWithoutSkuInput
+    purchaseOrderLegacyLines?: PurchaseOrderLegacyLineCreateNestedManyWithoutSkuInput
+    matchingSetBuyPlanLines?: MatchingSetBuyPlanLineCreateNestedManyWithoutSkuInput
+    manualReceipts?: ManualReceiptCreateNestedManyWithoutSkuInput
+    manualReturns?: ManualReturnCreateNestedManyWithoutSkuInput
+    transferLines?: TransferLineCreateNestedManyWithoutSkuInput
+    inventoryAdjustmentLines?: InventoryAdjustmentLineCreateNestedManyWithoutSkuInput
+    inventoryHistorySnapshots?: InventoryHistorySnapshotCreateNestedManyWithoutSkuInput
+    matchingSetMembers?: MatchingSetMemberCreateNestedManyWithoutSkuInput
+    importCostBuildOutputs?: ImportCostBuildCreateNestedManyWithoutOutputSkuInput
+    supplierQuotationLines?: SupplierQuotationLineCreateNestedManyWithoutLinkedSkuInput
+    supplierQuotationRelations?: SupplierQuotationLineRelationCreateNestedManyWithoutTargetSkuInput
+    replacementsToThis?: SkuReplacementCreateNestedManyWithoutReplacementSkuInput
+  }
+
+  export type SkuUncheckedCreateWithoutReplacementsFromThisInput = {
+    id?: string
+    provisionalCode: string
+    code?: string | null
+    skuState?: string
+    familyCode?: string | null
+    categoryNumber?: number | null
+    vendorId?: string | null
+    vendorSku?: string | null
+    brandId?: number | null
+    descriptionRics?: string | null
+    descriptionWeb?: string | null
+    comment?: string | null
+    keywords?: string | null
+    listPrice?: Decimal | DecimalJsLike | number | string | null
+    retailPrice?: Decimal | DecimalJsLike | number | string | null
+    markDownPrice1?: Decimal | DecimalJsLike | number | string | null
+    markDownPrice2?: Decimal | DecimalJsLike | number | string | null
+    currentCost?: Decimal | DecimalJsLike | number | string | null
+    currentPriceSlot?: string | null
+    sizeType?: number | null
+    styleColor?: string | null
+    season?: string | null
+    location?: string | null
+    labelCode?: string | null
+    colorCode?: string | null
+    groupCode?: string | null
+    pictureFileName?: string | null
+    manufacturer?: string | null
+    coupon?: boolean
+    orderMultiple?: number | null
+    orderUom?: string | null
+    perks?: Decimal | DecimalJsLike | number | string | null
+    discountCode?: string | null
+    activatedAt?: Date | string | null
+    activatedBy?: string | null
+    discontinuedAt?: Date | string | null
+    discontinuedBy?: string | null
+    createdAt?: Date | string
+    createdBy: string
+    updatedAt?: Date | string | null
+    legacyAttrs?: NullableJsonNullValueInput | InputJsonValue
+    source?: string
+    ricsLastSyncedAt?: Date | string | null
+    ricsStatus?: string | null
+    activity?: SkuActivityUncheckedCreateNestedManyWithoutSkuInput
+    sizes?: SkuSizeUncheckedCreateNestedManyWithoutSkuInput
+    inventory?: InventoryUncheckedCreateNestedManyWithoutSkuInput
+    auditLog?: InventoryAuditLogUncheckedCreateNestedManyWithoutSkuInput
+    stockLevels?: StockLevelUncheckedCreateNestedManyWithoutSkuInput
+    stockMovements?: StockMovementUncheckedCreateNestedManyWithoutSkuInput
+    stockCostEvents?: StockCostEventUncheckedCreateNestedManyWithoutSkuInput
+    stockCostBalances?: StockCostBalanceUncheckedCreateNestedManyWithoutSkuInput
+    replenishmentTargets?: ReplenishmentTargetUncheckedCreateNestedManyWithoutSkuInput
+    inventorySalesCells?: InventorySalesCellUncheckedCreateNestedManyWithoutSkuInput
+    upcs?: SkuUpcUncheckedCreateNestedManyWithoutSkuInput
+    futurePriceChanges?: FuturePriceChangeUncheckedCreateNestedManyWithoutSkuInput
+    purchaseOrderLines?: PurchaseOrderLineUncheckedCreateNestedManyWithoutSkuInput
+    poReceiptLines?: PoReceiptLineUncheckedCreateNestedManyWithoutSkuInput
+    purchaseOrderLegacyLines?: PurchaseOrderLegacyLineUncheckedCreateNestedManyWithoutSkuInput
+    matchingSetBuyPlanLines?: MatchingSetBuyPlanLineUncheckedCreateNestedManyWithoutSkuInput
+    manualReceipts?: ManualReceiptUncheckedCreateNestedManyWithoutSkuInput
+    manualReturns?: ManualReturnUncheckedCreateNestedManyWithoutSkuInput
+    transferLines?: TransferLineUncheckedCreateNestedManyWithoutSkuInput
+    inventoryAdjustmentLines?: InventoryAdjustmentLineUncheckedCreateNestedManyWithoutSkuInput
+    inventoryHistorySnapshots?: InventoryHistorySnapshotUncheckedCreateNestedManyWithoutSkuInput
+    matchingSetMembers?: MatchingSetMemberUncheckedCreateNestedManyWithoutSkuInput
+    importCostBuildOutputs?: ImportCostBuildUncheckedCreateNestedManyWithoutOutputSkuInput
+    supplierQuotationLines?: SupplierQuotationLineUncheckedCreateNestedManyWithoutLinkedSkuInput
+    supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedCreateNestedManyWithoutTargetSkuInput
+    replacementsToThis?: SkuReplacementUncheckedCreateNestedManyWithoutReplacementSkuInput
+  }
+
+  export type SkuCreateOrConnectWithoutReplacementsFromThisInput = {
+    where: SkuWhereUniqueInput
+    create: XOR<SkuCreateWithoutReplacementsFromThisInput, SkuUncheckedCreateWithoutReplacementsFromThisInput>
+  }
+
+  export type SkuCreateWithoutReplacementsToThisInput = {
+    id?: string
+    provisionalCode: string
+    code?: string | null
+    skuState?: string
+    categoryNumber?: number | null
+    vendorId?: string | null
+    vendorSku?: string | null
+    brandId?: number | null
+    descriptionRics?: string | null
+    descriptionWeb?: string | null
+    comment?: string | null
+    keywords?: string | null
+    listPrice?: Decimal | DecimalJsLike | number | string | null
+    retailPrice?: Decimal | DecimalJsLike | number | string | null
+    markDownPrice1?: Decimal | DecimalJsLike | number | string | null
+    markDownPrice2?: Decimal | DecimalJsLike | number | string | null
+    currentCost?: Decimal | DecimalJsLike | number | string | null
+    currentPriceSlot?: string | null
+    sizeType?: number | null
+    styleColor?: string | null
+    season?: string | null
+    location?: string | null
+    labelCode?: string | null
+    colorCode?: string | null
+    groupCode?: string | null
+    pictureFileName?: string | null
+    manufacturer?: string | null
+    coupon?: boolean
+    orderMultiple?: number | null
+    orderUom?: string | null
+    perks?: Decimal | DecimalJsLike | number | string | null
+    discountCode?: string | null
+    activatedAt?: Date | string | null
+    activatedBy?: string | null
+    discontinuedAt?: Date | string | null
+    discontinuedBy?: string | null
+    createdAt?: Date | string
+    createdBy: string
+    updatedAt?: Date | string | null
+    legacyAttrs?: NullableJsonNullValueInput | InputJsonValue
+    source?: string
+    ricsLastSyncedAt?: Date | string | null
+    ricsStatus?: string | null
+    family?: ProductFamilyCreateNestedOneWithoutSkusInput
+    activity?: SkuActivityCreateNestedManyWithoutSkuInput
+    sizes?: SkuSizeCreateNestedManyWithoutSkuInput
+    inventory?: InventoryCreateNestedManyWithoutSkuInput
+    auditLog?: InventoryAuditLogCreateNestedManyWithoutSkuInput
+    stockLevels?: StockLevelCreateNestedManyWithoutSkuInput
+    stockMovements?: StockMovementCreateNestedManyWithoutSkuInput
+    stockCostEvents?: StockCostEventCreateNestedManyWithoutSkuInput
+    stockCostBalances?: StockCostBalanceCreateNestedManyWithoutSkuInput
+    replenishmentTargets?: ReplenishmentTargetCreateNestedManyWithoutSkuInput
+    inventorySalesCells?: InventorySalesCellCreateNestedManyWithoutSkuInput
+    upcs?: SkuUpcCreateNestedManyWithoutSkuInput
+    futurePriceChanges?: FuturePriceChangeCreateNestedManyWithoutSkuInput
+    purchaseOrderLines?: PurchaseOrderLineCreateNestedManyWithoutSkuInput
+    poReceiptLines?: PoReceiptLineCreateNestedManyWithoutSkuInput
+    purchaseOrderLegacyLines?: PurchaseOrderLegacyLineCreateNestedManyWithoutSkuInput
+    matchingSetBuyPlanLines?: MatchingSetBuyPlanLineCreateNestedManyWithoutSkuInput
+    manualReceipts?: ManualReceiptCreateNestedManyWithoutSkuInput
+    manualReturns?: ManualReturnCreateNestedManyWithoutSkuInput
+    transferLines?: TransferLineCreateNestedManyWithoutSkuInput
+    inventoryAdjustmentLines?: InventoryAdjustmentLineCreateNestedManyWithoutSkuInput
+    inventoryHistorySnapshots?: InventoryHistorySnapshotCreateNestedManyWithoutSkuInput
+    matchingSetMembers?: MatchingSetMemberCreateNestedManyWithoutSkuInput
+    importCostBuildOutputs?: ImportCostBuildCreateNestedManyWithoutOutputSkuInput
+    supplierQuotationLines?: SupplierQuotationLineCreateNestedManyWithoutLinkedSkuInput
+    supplierQuotationRelations?: SupplierQuotationLineRelationCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementCreateNestedManyWithoutOldSkuInput
+  }
+
+  export type SkuUncheckedCreateWithoutReplacementsToThisInput = {
+    id?: string
+    provisionalCode: string
+    code?: string | null
+    skuState?: string
+    familyCode?: string | null
+    categoryNumber?: number | null
+    vendorId?: string | null
+    vendorSku?: string | null
+    brandId?: number | null
+    descriptionRics?: string | null
+    descriptionWeb?: string | null
+    comment?: string | null
+    keywords?: string | null
+    listPrice?: Decimal | DecimalJsLike | number | string | null
+    retailPrice?: Decimal | DecimalJsLike | number | string | null
+    markDownPrice1?: Decimal | DecimalJsLike | number | string | null
+    markDownPrice2?: Decimal | DecimalJsLike | number | string | null
+    currentCost?: Decimal | DecimalJsLike | number | string | null
+    currentPriceSlot?: string | null
+    sizeType?: number | null
+    styleColor?: string | null
+    season?: string | null
+    location?: string | null
+    labelCode?: string | null
+    colorCode?: string | null
+    groupCode?: string | null
+    pictureFileName?: string | null
+    manufacturer?: string | null
+    coupon?: boolean
+    orderMultiple?: number | null
+    orderUom?: string | null
+    perks?: Decimal | DecimalJsLike | number | string | null
+    discountCode?: string | null
+    activatedAt?: Date | string | null
+    activatedBy?: string | null
+    discontinuedAt?: Date | string | null
+    discontinuedBy?: string | null
+    createdAt?: Date | string
+    createdBy: string
+    updatedAt?: Date | string | null
+    legacyAttrs?: NullableJsonNullValueInput | InputJsonValue
+    source?: string
+    ricsLastSyncedAt?: Date | string | null
+    ricsStatus?: string | null
+    activity?: SkuActivityUncheckedCreateNestedManyWithoutSkuInput
+    sizes?: SkuSizeUncheckedCreateNestedManyWithoutSkuInput
+    inventory?: InventoryUncheckedCreateNestedManyWithoutSkuInput
+    auditLog?: InventoryAuditLogUncheckedCreateNestedManyWithoutSkuInput
+    stockLevels?: StockLevelUncheckedCreateNestedManyWithoutSkuInput
+    stockMovements?: StockMovementUncheckedCreateNestedManyWithoutSkuInput
+    stockCostEvents?: StockCostEventUncheckedCreateNestedManyWithoutSkuInput
+    stockCostBalances?: StockCostBalanceUncheckedCreateNestedManyWithoutSkuInput
+    replenishmentTargets?: ReplenishmentTargetUncheckedCreateNestedManyWithoutSkuInput
+    inventorySalesCells?: InventorySalesCellUncheckedCreateNestedManyWithoutSkuInput
+    upcs?: SkuUpcUncheckedCreateNestedManyWithoutSkuInput
+    futurePriceChanges?: FuturePriceChangeUncheckedCreateNestedManyWithoutSkuInput
+    purchaseOrderLines?: PurchaseOrderLineUncheckedCreateNestedManyWithoutSkuInput
+    poReceiptLines?: PoReceiptLineUncheckedCreateNestedManyWithoutSkuInput
+    purchaseOrderLegacyLines?: PurchaseOrderLegacyLineUncheckedCreateNestedManyWithoutSkuInput
+    matchingSetBuyPlanLines?: MatchingSetBuyPlanLineUncheckedCreateNestedManyWithoutSkuInput
+    manualReceipts?: ManualReceiptUncheckedCreateNestedManyWithoutSkuInput
+    manualReturns?: ManualReturnUncheckedCreateNestedManyWithoutSkuInput
+    transferLines?: TransferLineUncheckedCreateNestedManyWithoutSkuInput
+    inventoryAdjustmentLines?: InventoryAdjustmentLineUncheckedCreateNestedManyWithoutSkuInput
+    inventoryHistorySnapshots?: InventoryHistorySnapshotUncheckedCreateNestedManyWithoutSkuInput
+    matchingSetMembers?: MatchingSetMemberUncheckedCreateNestedManyWithoutSkuInput
+    importCostBuildOutputs?: ImportCostBuildUncheckedCreateNestedManyWithoutOutputSkuInput
+    supplierQuotationLines?: SupplierQuotationLineUncheckedCreateNestedManyWithoutLinkedSkuInput
+    supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementUncheckedCreateNestedManyWithoutOldSkuInput
+  }
+
+  export type SkuCreateOrConnectWithoutReplacementsToThisInput = {
+    where: SkuWhereUniqueInput
+    create: XOR<SkuCreateWithoutReplacementsToThisInput, SkuUncheckedCreateWithoutReplacementsToThisInput>
+  }
+
+  export type SkuUpsertWithoutReplacementsFromThisInput = {
+    update: XOR<SkuUpdateWithoutReplacementsFromThisInput, SkuUncheckedUpdateWithoutReplacementsFromThisInput>
+    create: XOR<SkuCreateWithoutReplacementsFromThisInput, SkuUncheckedCreateWithoutReplacementsFromThisInput>
+    where?: SkuWhereInput
+  }
+
+  export type SkuUpdateToOneWithWhereWithoutReplacementsFromThisInput = {
+    where?: SkuWhereInput
+    data: XOR<SkuUpdateWithoutReplacementsFromThisInput, SkuUncheckedUpdateWithoutReplacementsFromThisInput>
+  }
+
+  export type SkuUpdateWithoutReplacementsFromThisInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    provisionalCode?: StringFieldUpdateOperationsInput | string
+    code?: NullableStringFieldUpdateOperationsInput | string | null
+    skuState?: StringFieldUpdateOperationsInput | string
+    categoryNumber?: NullableIntFieldUpdateOperationsInput | number | null
+    vendorId?: NullableStringFieldUpdateOperationsInput | string | null
+    vendorSku?: NullableStringFieldUpdateOperationsInput | string | null
+    brandId?: NullableIntFieldUpdateOperationsInput | number | null
+    descriptionRics?: NullableStringFieldUpdateOperationsInput | string | null
+    descriptionWeb?: NullableStringFieldUpdateOperationsInput | string | null
+    comment?: NullableStringFieldUpdateOperationsInput | string | null
+    keywords?: NullableStringFieldUpdateOperationsInput | string | null
+    listPrice?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    retailPrice?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    markDownPrice1?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    markDownPrice2?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    currentCost?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    currentPriceSlot?: NullableStringFieldUpdateOperationsInput | string | null
+    sizeType?: NullableIntFieldUpdateOperationsInput | number | null
+    styleColor?: NullableStringFieldUpdateOperationsInput | string | null
+    season?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    labelCode?: NullableStringFieldUpdateOperationsInput | string | null
+    colorCode?: NullableStringFieldUpdateOperationsInput | string | null
+    groupCode?: NullableStringFieldUpdateOperationsInput | string | null
+    pictureFileName?: NullableStringFieldUpdateOperationsInput | string | null
+    manufacturer?: NullableStringFieldUpdateOperationsInput | string | null
+    coupon?: BoolFieldUpdateOperationsInput | boolean
+    orderMultiple?: NullableIntFieldUpdateOperationsInput | number | null
+    orderUom?: NullableStringFieldUpdateOperationsInput | string | null
+    perks?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    discountCode?: NullableStringFieldUpdateOperationsInput | string | null
+    activatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    activatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    discontinuedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    discontinuedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    legacyAttrs?: NullableJsonNullValueInput | InputJsonValue
+    source?: StringFieldUpdateOperationsInput | string
+    ricsLastSyncedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    ricsStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    family?: ProductFamilyUpdateOneWithoutSkusNestedInput
+    activity?: SkuActivityUpdateManyWithoutSkuNestedInput
+    sizes?: SkuSizeUpdateManyWithoutSkuNestedInput
+    inventory?: InventoryUpdateManyWithoutSkuNestedInput
+    auditLog?: InventoryAuditLogUpdateManyWithoutSkuNestedInput
+    stockLevels?: StockLevelUpdateManyWithoutSkuNestedInput
+    stockMovements?: StockMovementUpdateManyWithoutSkuNestedInput
+    stockCostEvents?: StockCostEventUpdateManyWithoutSkuNestedInput
+    stockCostBalances?: StockCostBalanceUpdateManyWithoutSkuNestedInput
+    replenishmentTargets?: ReplenishmentTargetUpdateManyWithoutSkuNestedInput
+    inventorySalesCells?: InventorySalesCellUpdateManyWithoutSkuNestedInput
+    upcs?: SkuUpcUpdateManyWithoutSkuNestedInput
+    futurePriceChanges?: FuturePriceChangeUpdateManyWithoutSkuNestedInput
+    purchaseOrderLines?: PurchaseOrderLineUpdateManyWithoutSkuNestedInput
+    poReceiptLines?: PoReceiptLineUpdateManyWithoutSkuNestedInput
+    purchaseOrderLegacyLines?: PurchaseOrderLegacyLineUpdateManyWithoutSkuNestedInput
+    matchingSetBuyPlanLines?: MatchingSetBuyPlanLineUpdateManyWithoutSkuNestedInput
+    manualReceipts?: ManualReceiptUpdateManyWithoutSkuNestedInput
+    manualReturns?: ManualReturnUpdateManyWithoutSkuNestedInput
+    transferLines?: TransferLineUpdateManyWithoutSkuNestedInput
+    inventoryAdjustmentLines?: InventoryAdjustmentLineUpdateManyWithoutSkuNestedInput
+    inventoryHistorySnapshots?: InventoryHistorySnapshotUpdateManyWithoutSkuNestedInput
+    matchingSetMembers?: MatchingSetMemberUpdateManyWithoutSkuNestedInput
+    importCostBuildOutputs?: ImportCostBuildUpdateManyWithoutOutputSkuNestedInput
+    supplierQuotationLines?: SupplierQuotationLineUpdateManyWithoutLinkedSkuNestedInput
+    supplierQuotationRelations?: SupplierQuotationLineRelationUpdateManyWithoutTargetSkuNestedInput
+    replacementsToThis?: SkuReplacementUpdateManyWithoutReplacementSkuNestedInput
+  }
+
+  export type SkuUncheckedUpdateWithoutReplacementsFromThisInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    provisionalCode?: StringFieldUpdateOperationsInput | string
+    code?: NullableStringFieldUpdateOperationsInput | string | null
+    skuState?: StringFieldUpdateOperationsInput | string
+    familyCode?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryNumber?: NullableIntFieldUpdateOperationsInput | number | null
+    vendorId?: NullableStringFieldUpdateOperationsInput | string | null
+    vendorSku?: NullableStringFieldUpdateOperationsInput | string | null
+    brandId?: NullableIntFieldUpdateOperationsInput | number | null
+    descriptionRics?: NullableStringFieldUpdateOperationsInput | string | null
+    descriptionWeb?: NullableStringFieldUpdateOperationsInput | string | null
+    comment?: NullableStringFieldUpdateOperationsInput | string | null
+    keywords?: NullableStringFieldUpdateOperationsInput | string | null
+    listPrice?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    retailPrice?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    markDownPrice1?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    markDownPrice2?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    currentCost?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    currentPriceSlot?: NullableStringFieldUpdateOperationsInput | string | null
+    sizeType?: NullableIntFieldUpdateOperationsInput | number | null
+    styleColor?: NullableStringFieldUpdateOperationsInput | string | null
+    season?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    labelCode?: NullableStringFieldUpdateOperationsInput | string | null
+    colorCode?: NullableStringFieldUpdateOperationsInput | string | null
+    groupCode?: NullableStringFieldUpdateOperationsInput | string | null
+    pictureFileName?: NullableStringFieldUpdateOperationsInput | string | null
+    manufacturer?: NullableStringFieldUpdateOperationsInput | string | null
+    coupon?: BoolFieldUpdateOperationsInput | boolean
+    orderMultiple?: NullableIntFieldUpdateOperationsInput | number | null
+    orderUom?: NullableStringFieldUpdateOperationsInput | string | null
+    perks?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    discountCode?: NullableStringFieldUpdateOperationsInput | string | null
+    activatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    activatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    discontinuedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    discontinuedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    legacyAttrs?: NullableJsonNullValueInput | InputJsonValue
+    source?: StringFieldUpdateOperationsInput | string
+    ricsLastSyncedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    ricsStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    activity?: SkuActivityUncheckedUpdateManyWithoutSkuNestedInput
+    sizes?: SkuSizeUncheckedUpdateManyWithoutSkuNestedInput
+    inventory?: InventoryUncheckedUpdateManyWithoutSkuNestedInput
+    auditLog?: InventoryAuditLogUncheckedUpdateManyWithoutSkuNestedInput
+    stockLevels?: StockLevelUncheckedUpdateManyWithoutSkuNestedInput
+    stockMovements?: StockMovementUncheckedUpdateManyWithoutSkuNestedInput
+    stockCostEvents?: StockCostEventUncheckedUpdateManyWithoutSkuNestedInput
+    stockCostBalances?: StockCostBalanceUncheckedUpdateManyWithoutSkuNestedInput
+    replenishmentTargets?: ReplenishmentTargetUncheckedUpdateManyWithoutSkuNestedInput
+    inventorySalesCells?: InventorySalesCellUncheckedUpdateManyWithoutSkuNestedInput
+    upcs?: SkuUpcUncheckedUpdateManyWithoutSkuNestedInput
+    futurePriceChanges?: FuturePriceChangeUncheckedUpdateManyWithoutSkuNestedInput
+    purchaseOrderLines?: PurchaseOrderLineUncheckedUpdateManyWithoutSkuNestedInput
+    poReceiptLines?: PoReceiptLineUncheckedUpdateManyWithoutSkuNestedInput
+    purchaseOrderLegacyLines?: PurchaseOrderLegacyLineUncheckedUpdateManyWithoutSkuNestedInput
+    matchingSetBuyPlanLines?: MatchingSetBuyPlanLineUncheckedUpdateManyWithoutSkuNestedInput
+    manualReceipts?: ManualReceiptUncheckedUpdateManyWithoutSkuNestedInput
+    manualReturns?: ManualReturnUncheckedUpdateManyWithoutSkuNestedInput
+    transferLines?: TransferLineUncheckedUpdateManyWithoutSkuNestedInput
+    inventoryAdjustmentLines?: InventoryAdjustmentLineUncheckedUpdateManyWithoutSkuNestedInput
+    inventoryHistorySnapshots?: InventoryHistorySnapshotUncheckedUpdateManyWithoutSkuNestedInput
+    matchingSetMembers?: MatchingSetMemberUncheckedUpdateManyWithoutSkuNestedInput
+    importCostBuildOutputs?: ImportCostBuildUncheckedUpdateManyWithoutOutputSkuNestedInput
+    supplierQuotationLines?: SupplierQuotationLineUncheckedUpdateManyWithoutLinkedSkuNestedInput
+    supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedUpdateManyWithoutTargetSkuNestedInput
+    replacementsToThis?: SkuReplacementUncheckedUpdateManyWithoutReplacementSkuNestedInput
+  }
+
+  export type SkuUpsertWithoutReplacementsToThisInput = {
+    update: XOR<SkuUpdateWithoutReplacementsToThisInput, SkuUncheckedUpdateWithoutReplacementsToThisInput>
+    create: XOR<SkuCreateWithoutReplacementsToThisInput, SkuUncheckedCreateWithoutReplacementsToThisInput>
+    where?: SkuWhereInput
+  }
+
+  export type SkuUpdateToOneWithWhereWithoutReplacementsToThisInput = {
+    where?: SkuWhereInput
+    data: XOR<SkuUpdateWithoutReplacementsToThisInput, SkuUncheckedUpdateWithoutReplacementsToThisInput>
+  }
+
+  export type SkuUpdateWithoutReplacementsToThisInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    provisionalCode?: StringFieldUpdateOperationsInput | string
+    code?: NullableStringFieldUpdateOperationsInput | string | null
+    skuState?: StringFieldUpdateOperationsInput | string
+    categoryNumber?: NullableIntFieldUpdateOperationsInput | number | null
+    vendorId?: NullableStringFieldUpdateOperationsInput | string | null
+    vendorSku?: NullableStringFieldUpdateOperationsInput | string | null
+    brandId?: NullableIntFieldUpdateOperationsInput | number | null
+    descriptionRics?: NullableStringFieldUpdateOperationsInput | string | null
+    descriptionWeb?: NullableStringFieldUpdateOperationsInput | string | null
+    comment?: NullableStringFieldUpdateOperationsInput | string | null
+    keywords?: NullableStringFieldUpdateOperationsInput | string | null
+    listPrice?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    retailPrice?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    markDownPrice1?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    markDownPrice2?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    currentCost?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    currentPriceSlot?: NullableStringFieldUpdateOperationsInput | string | null
+    sizeType?: NullableIntFieldUpdateOperationsInput | number | null
+    styleColor?: NullableStringFieldUpdateOperationsInput | string | null
+    season?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    labelCode?: NullableStringFieldUpdateOperationsInput | string | null
+    colorCode?: NullableStringFieldUpdateOperationsInput | string | null
+    groupCode?: NullableStringFieldUpdateOperationsInput | string | null
+    pictureFileName?: NullableStringFieldUpdateOperationsInput | string | null
+    manufacturer?: NullableStringFieldUpdateOperationsInput | string | null
+    coupon?: BoolFieldUpdateOperationsInput | boolean
+    orderMultiple?: NullableIntFieldUpdateOperationsInput | number | null
+    orderUom?: NullableStringFieldUpdateOperationsInput | string | null
+    perks?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    discountCode?: NullableStringFieldUpdateOperationsInput | string | null
+    activatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    activatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    discontinuedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    discontinuedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    legacyAttrs?: NullableJsonNullValueInput | InputJsonValue
+    source?: StringFieldUpdateOperationsInput | string
+    ricsLastSyncedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    ricsStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    family?: ProductFamilyUpdateOneWithoutSkusNestedInput
+    activity?: SkuActivityUpdateManyWithoutSkuNestedInput
+    sizes?: SkuSizeUpdateManyWithoutSkuNestedInput
+    inventory?: InventoryUpdateManyWithoutSkuNestedInput
+    auditLog?: InventoryAuditLogUpdateManyWithoutSkuNestedInput
+    stockLevels?: StockLevelUpdateManyWithoutSkuNestedInput
+    stockMovements?: StockMovementUpdateManyWithoutSkuNestedInput
+    stockCostEvents?: StockCostEventUpdateManyWithoutSkuNestedInput
+    stockCostBalances?: StockCostBalanceUpdateManyWithoutSkuNestedInput
+    replenishmentTargets?: ReplenishmentTargetUpdateManyWithoutSkuNestedInput
+    inventorySalesCells?: InventorySalesCellUpdateManyWithoutSkuNestedInput
+    upcs?: SkuUpcUpdateManyWithoutSkuNestedInput
+    futurePriceChanges?: FuturePriceChangeUpdateManyWithoutSkuNestedInput
+    purchaseOrderLines?: PurchaseOrderLineUpdateManyWithoutSkuNestedInput
+    poReceiptLines?: PoReceiptLineUpdateManyWithoutSkuNestedInput
+    purchaseOrderLegacyLines?: PurchaseOrderLegacyLineUpdateManyWithoutSkuNestedInput
+    matchingSetBuyPlanLines?: MatchingSetBuyPlanLineUpdateManyWithoutSkuNestedInput
+    manualReceipts?: ManualReceiptUpdateManyWithoutSkuNestedInput
+    manualReturns?: ManualReturnUpdateManyWithoutSkuNestedInput
+    transferLines?: TransferLineUpdateManyWithoutSkuNestedInput
+    inventoryAdjustmentLines?: InventoryAdjustmentLineUpdateManyWithoutSkuNestedInput
+    inventoryHistorySnapshots?: InventoryHistorySnapshotUpdateManyWithoutSkuNestedInput
+    matchingSetMembers?: MatchingSetMemberUpdateManyWithoutSkuNestedInput
+    importCostBuildOutputs?: ImportCostBuildUpdateManyWithoutOutputSkuNestedInput
+    supplierQuotationLines?: SupplierQuotationLineUpdateManyWithoutLinkedSkuNestedInput
+    supplierQuotationRelations?: SupplierQuotationLineRelationUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUpdateManyWithoutOldSkuNestedInput
+  }
+
+  export type SkuUncheckedUpdateWithoutReplacementsToThisInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    provisionalCode?: StringFieldUpdateOperationsInput | string
+    code?: NullableStringFieldUpdateOperationsInput | string | null
+    skuState?: StringFieldUpdateOperationsInput | string
+    familyCode?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryNumber?: NullableIntFieldUpdateOperationsInput | number | null
+    vendorId?: NullableStringFieldUpdateOperationsInput | string | null
+    vendorSku?: NullableStringFieldUpdateOperationsInput | string | null
+    brandId?: NullableIntFieldUpdateOperationsInput | number | null
+    descriptionRics?: NullableStringFieldUpdateOperationsInput | string | null
+    descriptionWeb?: NullableStringFieldUpdateOperationsInput | string | null
+    comment?: NullableStringFieldUpdateOperationsInput | string | null
+    keywords?: NullableStringFieldUpdateOperationsInput | string | null
+    listPrice?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    retailPrice?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    markDownPrice1?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    markDownPrice2?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    currentCost?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    currentPriceSlot?: NullableStringFieldUpdateOperationsInput | string | null
+    sizeType?: NullableIntFieldUpdateOperationsInput | number | null
+    styleColor?: NullableStringFieldUpdateOperationsInput | string | null
+    season?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    labelCode?: NullableStringFieldUpdateOperationsInput | string | null
+    colorCode?: NullableStringFieldUpdateOperationsInput | string | null
+    groupCode?: NullableStringFieldUpdateOperationsInput | string | null
+    pictureFileName?: NullableStringFieldUpdateOperationsInput | string | null
+    manufacturer?: NullableStringFieldUpdateOperationsInput | string | null
+    coupon?: BoolFieldUpdateOperationsInput | boolean
+    orderMultiple?: NullableIntFieldUpdateOperationsInput | number | null
+    orderUom?: NullableStringFieldUpdateOperationsInput | string | null
+    perks?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    discountCode?: NullableStringFieldUpdateOperationsInput | string | null
+    activatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    activatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    discontinuedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    discontinuedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    legacyAttrs?: NullableJsonNullValueInput | InputJsonValue
+    source?: StringFieldUpdateOperationsInput | string
+    ricsLastSyncedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    ricsStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    activity?: SkuActivityUncheckedUpdateManyWithoutSkuNestedInput
+    sizes?: SkuSizeUncheckedUpdateManyWithoutSkuNestedInput
+    inventory?: InventoryUncheckedUpdateManyWithoutSkuNestedInput
+    auditLog?: InventoryAuditLogUncheckedUpdateManyWithoutSkuNestedInput
+    stockLevels?: StockLevelUncheckedUpdateManyWithoutSkuNestedInput
+    stockMovements?: StockMovementUncheckedUpdateManyWithoutSkuNestedInput
+    stockCostEvents?: StockCostEventUncheckedUpdateManyWithoutSkuNestedInput
+    stockCostBalances?: StockCostBalanceUncheckedUpdateManyWithoutSkuNestedInput
+    replenishmentTargets?: ReplenishmentTargetUncheckedUpdateManyWithoutSkuNestedInput
+    inventorySalesCells?: InventorySalesCellUncheckedUpdateManyWithoutSkuNestedInput
+    upcs?: SkuUpcUncheckedUpdateManyWithoutSkuNestedInput
+    futurePriceChanges?: FuturePriceChangeUncheckedUpdateManyWithoutSkuNestedInput
+    purchaseOrderLines?: PurchaseOrderLineUncheckedUpdateManyWithoutSkuNestedInput
+    poReceiptLines?: PoReceiptLineUncheckedUpdateManyWithoutSkuNestedInput
+    purchaseOrderLegacyLines?: PurchaseOrderLegacyLineUncheckedUpdateManyWithoutSkuNestedInput
+    matchingSetBuyPlanLines?: MatchingSetBuyPlanLineUncheckedUpdateManyWithoutSkuNestedInput
+    manualReceipts?: ManualReceiptUncheckedUpdateManyWithoutSkuNestedInput
+    manualReturns?: ManualReturnUncheckedUpdateManyWithoutSkuNestedInput
+    transferLines?: TransferLineUncheckedUpdateManyWithoutSkuNestedInput
+    inventoryAdjustmentLines?: InventoryAdjustmentLineUncheckedUpdateManyWithoutSkuNestedInput
+    inventoryHistorySnapshots?: InventoryHistorySnapshotUncheckedUpdateManyWithoutSkuNestedInput
+    matchingSetMembers?: MatchingSetMemberUncheckedUpdateManyWithoutSkuNestedInput
+    importCostBuildOutputs?: ImportCostBuildUncheckedUpdateManyWithoutOutputSkuNestedInput
+    supplierQuotationLines?: SupplierQuotationLineUncheckedUpdateManyWithoutLinkedSkuNestedInput
+    supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUncheckedUpdateManyWithoutOldSkuNestedInput
   }
 
   export type SkuCreateWithoutSizesInput = {
@@ -307224,6 +309667,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuUncheckedCreateWithoutSizesInput = {
@@ -307295,6 +309740,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUncheckedCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementUncheckedCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementUncheckedCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuCreateOrConnectWithoutSizesInput = {
@@ -307450,6 +309897,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type SkuUncheckedUpdateWithoutSizesInput = {
@@ -307521,6 +309970,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUncheckedUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUncheckedUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUncheckedUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type InventoryUpsertWithWhereUniqueWithoutSkuSizeInput = {
@@ -307624,6 +310075,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuUncheckedCreateWithoutInventoryInput = {
@@ -307695,6 +310148,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUncheckedCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementUncheckedCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementUncheckedCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuCreateOrConnectWithoutInventoryInput = {
@@ -307805,6 +310260,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type SkuUncheckedUpdateWithoutInventoryInput = {
@@ -307876,6 +310333,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUncheckedUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUncheckedUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUncheckedUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type SkuSizeUpsertWithoutInventoryInput = {
@@ -307976,6 +310435,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuUncheckedCreateWithoutAuditLogInput = {
@@ -308047,6 +310508,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUncheckedCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementUncheckedCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementUncheckedCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuCreateOrConnectWithoutAuditLogInput = {
@@ -308157,6 +310620,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type SkuUncheckedUpdateWithoutAuditLogInput = {
@@ -308228,6 +310693,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUncheckedUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUncheckedUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUncheckedUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type SkuSizeUpsertWithoutAuditLogInput = {
@@ -308393,6 +310860,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuUncheckedCreateWithoutInventoryAdjustmentLinesInput = {
@@ -308464,6 +310933,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUncheckedCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementUncheckedCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementUncheckedCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuCreateOrConnectWithoutInventoryAdjustmentLinesInput = {
@@ -308582,6 +311053,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type SkuUncheckedUpdateWithoutInventoryAdjustmentLinesInput = {
@@ -308653,6 +311126,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUncheckedUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUncheckedUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUncheckedUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type SkuCreateWithoutStockLevelsInput = {
@@ -308724,6 +311199,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuUncheckedCreateWithoutStockLevelsInput = {
@@ -308795,6 +311272,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUncheckedCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementUncheckedCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementUncheckedCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuCreateOrConnectWithoutStockLevelsInput = {
@@ -308882,6 +311361,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type SkuUncheckedUpdateWithoutStockLevelsInput = {
@@ -308953,6 +311434,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUncheckedUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUncheckedUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUncheckedUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type SkuCreateWithoutStockMovementsInput = {
@@ -309024,6 +311507,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuUncheckedCreateWithoutStockMovementsInput = {
@@ -309095,6 +311580,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUncheckedCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementUncheckedCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementUncheckedCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuCreateOrConnectWithoutStockMovementsInput = {
@@ -309334,6 +311821,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type SkuUncheckedUpdateWithoutStockMovementsInput = {
@@ -309405,6 +311894,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUncheckedUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUncheckedUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUncheckedUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type ManualReceiptLineUpsertWithoutMovementInput = {
@@ -309637,6 +312128,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuUncheckedCreateWithoutStockCostEventsInput = {
@@ -309708,6 +312201,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUncheckedCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementUncheckedCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementUncheckedCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuCreateOrConnectWithoutStockCostEventsInput = {
@@ -309854,6 +312349,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type SkuUncheckedUpdateWithoutStockCostEventsInput = {
@@ -309925,6 +312422,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUncheckedUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUncheckedUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUncheckedUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type SkuCreateWithoutStockCostBalancesInput = {
@@ -309996,6 +312495,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuUncheckedCreateWithoutStockCostBalancesInput = {
@@ -310067,6 +312568,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUncheckedCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementUncheckedCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementUncheckedCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuCreateOrConnectWithoutStockCostBalancesInput = {
@@ -310154,6 +312657,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type SkuUncheckedUpdateWithoutStockCostBalancesInput = {
@@ -310225,6 +312730,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUncheckedUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUncheckedUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUncheckedUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type SkuCreateWithoutManualReceiptsInput = {
@@ -310296,6 +312803,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuUncheckedCreateWithoutManualReceiptsInput = {
@@ -310367,6 +312876,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUncheckedCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementUncheckedCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementUncheckedCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuCreateOrConnectWithoutManualReceiptsInput = {
@@ -310484,6 +312995,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type SkuUncheckedUpdateWithoutManualReceiptsInput = {
@@ -310555,6 +313068,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUncheckedUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUncheckedUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUncheckedUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type ManualReceiptLineUpsertWithWhereUniqueWithoutManualReceiptInput = {
@@ -315177,6 +317692,8 @@ export namespace Prisma {
     matchingSetMembers?: MatchingSetMemberCreateNestedManyWithoutSkuInput
     supplierQuotationLines?: SupplierQuotationLineCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuUncheckedCreateWithoutImportCostBuildOutputsInput = {
@@ -315248,6 +317765,8 @@ export namespace Prisma {
     matchingSetMembers?: MatchingSetMemberUncheckedCreateNestedManyWithoutSkuInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementUncheckedCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementUncheckedCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuCreateOrConnectWithoutImportCostBuildOutputsInput = {
@@ -315628,6 +318147,8 @@ export namespace Prisma {
     matchingSetMembers?: MatchingSetMemberUpdateManyWithoutSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type SkuUncheckedUpdateWithoutImportCostBuildOutputsInput = {
@@ -315699,6 +318220,8 @@ export namespace Prisma {
     matchingSetMembers?: MatchingSetMemberUncheckedUpdateManyWithoutSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUncheckedUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUncheckedUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type ImportCostComponentAllocationUpsertWithWhereUniqueWithoutBuildInput = {
@@ -318868,6 +321391,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuUncheckedCreateWithoutReplenishmentTargetsInput = {
@@ -318939,6 +321464,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUncheckedCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementUncheckedCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementUncheckedCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuCreateOrConnectWithoutReplenishmentTargetsInput = {
@@ -319026,6 +321553,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type SkuUncheckedUpdateWithoutReplenishmentTargetsInput = {
@@ -319097,6 +321626,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUncheckedUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUncheckedUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUncheckedUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type SkuCreateWithoutInventorySalesCellsInput = {
@@ -319168,6 +321699,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuUncheckedCreateWithoutInventorySalesCellsInput = {
@@ -319239,6 +321772,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUncheckedCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementUncheckedCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementUncheckedCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuCreateOrConnectWithoutInventorySalesCellsInput = {
@@ -319326,6 +321861,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type SkuUncheckedUpdateWithoutInventorySalesCellsInput = {
@@ -319397,6 +321934,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUncheckedUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUncheckedUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUncheckedUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type SkuCreateWithoutInventoryHistorySnapshotsInput = {
@@ -319468,6 +322007,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuUncheckedCreateWithoutInventoryHistorySnapshotsInput = {
@@ -319539,6 +322080,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUncheckedCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementUncheckedCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementUncheckedCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuCreateOrConnectWithoutInventoryHistorySnapshotsInput = {
@@ -319730,6 +322273,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type SkuUncheckedUpdateWithoutInventoryHistorySnapshotsInput = {
@@ -319801,6 +322346,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUncheckedUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUncheckedUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUncheckedUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type InventoryHistoryMonthUpsertWithWhereUniqueWithoutSnapshotInput = {
@@ -321097,6 +323644,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuUncheckedCreateWithoutManualReturnsInput = {
@@ -321168,6 +323717,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUncheckedCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementUncheckedCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementUncheckedCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuCreateOrConnectWithoutManualReturnsInput = {
@@ -321283,6 +323834,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type SkuUncheckedUpdateWithoutManualReturnsInput = {
@@ -321354,6 +323907,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUncheckedUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUncheckedUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUncheckedUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type ManualReturnLineUpsertWithWhereUniqueWithoutManualReturnInput = {
@@ -321719,6 +324274,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuUncheckedCreateWithoutTransferLinesInput = {
@@ -321790,6 +324347,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUncheckedCreateNestedManyWithoutOutputSkuInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedCreateNestedManyWithoutLinkedSkuInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedCreateNestedManyWithoutTargetSkuInput
+    replacementsFromThis?: SkuReplacementUncheckedCreateNestedManyWithoutOldSkuInput
+    replacementsToThis?: SkuReplacementUncheckedCreateNestedManyWithoutReplacementSkuInput
   }
 
   export type SkuCreateOrConnectWithoutTransferLinesInput = {
@@ -322026,6 +324585,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type SkuUncheckedUpdateWithoutTransferLinesInput = {
@@ -322097,6 +324658,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUncheckedUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUncheckedUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUncheckedUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type StockMovementUpsertWithoutTransferLineOutboundInput = {
@@ -329958,6 +332521,7 @@ export namespace Prisma {
   export type MatchingSetCreateManyVendorInput = {
     id?: string
     code: string
+    displayName?: string | null
     setTypeCode: string
     descriptionEs?: string | null
     vendorStyle?: string | null
@@ -330022,6 +332586,7 @@ export namespace Prisma {
   export type MatchingSetUpdateWithoutVendorInput = {
     id?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
+    displayName?: NullableStringFieldUpdateOperationsInput | string | null
     descriptionEs?: NullableStringFieldUpdateOperationsInput | string | null
     vendorStyle?: NullableStringFieldUpdateOperationsInput | string | null
     materialCode?: NullableStringFieldUpdateOperationsInput | string | null
@@ -330047,6 +332612,7 @@ export namespace Prisma {
   export type MatchingSetUncheckedUpdateWithoutVendorInput = {
     id?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
+    displayName?: NullableStringFieldUpdateOperationsInput | string | null
     setTypeCode?: StringFieldUpdateOperationsInput | string
     descriptionEs?: NullableStringFieldUpdateOperationsInput | string | null
     vendorStyle?: NullableStringFieldUpdateOperationsInput | string | null
@@ -330072,6 +332638,7 @@ export namespace Prisma {
   export type MatchingSetUncheckedUpdateManyWithoutVendorInput = {
     id?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
+    displayName?: NullableStringFieldUpdateOperationsInput | string | null
     setTypeCode?: StringFieldUpdateOperationsInput | string
     descriptionEs?: NullableStringFieldUpdateOperationsInput | string | null
     vendorStyle?: NullableStringFieldUpdateOperationsInput | string | null
@@ -330176,6 +332743,7 @@ export namespace Prisma {
   export type MatchingSetCreateManyChainInput = {
     id?: string
     code: string
+    displayName?: string | null
     setTypeCode: string
     descriptionEs?: string | null
     vendorId?: string | null
@@ -330293,6 +332861,7 @@ export namespace Prisma {
   export type MatchingSetUpdateWithoutChainInput = {
     id?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
+    displayName?: NullableStringFieldUpdateOperationsInput | string | null
     descriptionEs?: NullableStringFieldUpdateOperationsInput | string | null
     vendorStyle?: NullableStringFieldUpdateOperationsInput | string | null
     materialCode?: NullableStringFieldUpdateOperationsInput | string | null
@@ -330318,6 +332887,7 @@ export namespace Prisma {
   export type MatchingSetUncheckedUpdateWithoutChainInput = {
     id?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
+    displayName?: NullableStringFieldUpdateOperationsInput | string | null
     setTypeCode?: StringFieldUpdateOperationsInput | string
     descriptionEs?: NullableStringFieldUpdateOperationsInput | string | null
     vendorId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -330343,6 +332913,7 @@ export namespace Prisma {
   export type MatchingSetUncheckedUpdateManyWithoutChainInput = {
     id?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
+    displayName?: NullableStringFieldUpdateOperationsInput | string | null
     setTypeCode?: StringFieldUpdateOperationsInput | string
     descriptionEs?: NullableStringFieldUpdateOperationsInput | string | null
     vendorId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -332467,6 +335038,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type SkuUncheckedUpdateWithoutFamilyInput = {
@@ -332538,6 +335111,8 @@ export namespace Prisma {
     importCostBuildOutputs?: ImportCostBuildUncheckedUpdateManyWithoutOutputSkuNestedInput
     supplierQuotationLines?: SupplierQuotationLineUncheckedUpdateManyWithoutLinkedSkuNestedInput
     supplierQuotationRelations?: SupplierQuotationLineRelationUncheckedUpdateManyWithoutTargetSkuNestedInput
+    replacementsFromThis?: SkuReplacementUncheckedUpdateManyWithoutOldSkuNestedInput
+    replacementsToThis?: SkuReplacementUncheckedUpdateManyWithoutReplacementSkuNestedInput
   }
 
   export type SkuUncheckedUpdateManyWithoutFamilyInput = {
@@ -333092,6 +335667,34 @@ export namespace Prisma {
     note?: string | null
     createdAt?: Date | string
     createdBy?: string
+  }
+
+  export type SkuReplacementCreateManyOldSkuInput = {
+    id?: string
+    replacementSkuId: string
+    replacementType?: string
+    transferDemand?: boolean
+    effectiveAt?: Date | string
+    retiredAt?: Date | string | null
+    note?: string | null
+    createdAt?: Date | string
+    createdBy?: string
+    updatedAt?: Date | string
+    updatedBy?: string
+  }
+
+  export type SkuReplacementCreateManyReplacementSkuInput = {
+    id?: string
+    oldSkuId: string
+    replacementType?: string
+    transferDemand?: boolean
+    effectiveAt?: Date | string
+    retiredAt?: Date | string | null
+    note?: string | null
+    createdAt?: Date | string
+    createdBy?: string
+    updatedAt?: Date | string
+    updatedBy?: string
   }
 
   export type SkuActivityUpdateWithoutSkuInput = {
@@ -334356,6 +336959,90 @@ export namespace Prisma {
     createdBy?: StringFieldUpdateOperationsInput | string
   }
 
+  export type SkuReplacementUpdateWithoutOldSkuInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    replacementType?: StringFieldUpdateOperationsInput | string
+    transferDemand?: BoolFieldUpdateOperationsInput | boolean
+    effectiveAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    retiredAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    replacementSku?: SkuUpdateOneRequiredWithoutReplacementsToThisNestedInput
+  }
+
+  export type SkuReplacementUncheckedUpdateWithoutOldSkuInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    replacementSkuId?: StringFieldUpdateOperationsInput | string
+    replacementType?: StringFieldUpdateOperationsInput | string
+    transferDemand?: BoolFieldUpdateOperationsInput | boolean
+    effectiveAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    retiredAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type SkuReplacementUncheckedUpdateManyWithoutOldSkuInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    replacementSkuId?: StringFieldUpdateOperationsInput | string
+    replacementType?: StringFieldUpdateOperationsInput | string
+    transferDemand?: BoolFieldUpdateOperationsInput | boolean
+    effectiveAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    retiredAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type SkuReplacementUpdateWithoutReplacementSkuInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    replacementType?: StringFieldUpdateOperationsInput | string
+    transferDemand?: BoolFieldUpdateOperationsInput | boolean
+    effectiveAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    retiredAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    oldSku?: SkuUpdateOneRequiredWithoutReplacementsFromThisNestedInput
+  }
+
+  export type SkuReplacementUncheckedUpdateWithoutReplacementSkuInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    oldSkuId?: StringFieldUpdateOperationsInput | string
+    replacementType?: StringFieldUpdateOperationsInput | string
+    transferDemand?: BoolFieldUpdateOperationsInput | boolean
+    effectiveAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    retiredAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type SkuReplacementUncheckedUpdateManyWithoutReplacementSkuInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    oldSkuId?: StringFieldUpdateOperationsInput | string
+    replacementType?: StringFieldUpdateOperationsInput | string
+    transferDemand?: BoolFieldUpdateOperationsInput | boolean
+    effectiveAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    retiredAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
   export type MatchingSetRoleCreateManySetTypeInput = {
     code: string
     labelEs: string
@@ -334369,6 +337056,7 @@ export namespace Prisma {
   export type MatchingSetCreateManySetTypeInput = {
     id?: string
     code: string
+    displayName?: string | null
     descriptionEs?: string | null
     vendorId?: string | null
     vendorStyle?: string | null
@@ -334421,6 +337109,7 @@ export namespace Prisma {
   export type MatchingSetUpdateWithoutSetTypeInput = {
     id?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
+    displayName?: NullableStringFieldUpdateOperationsInput | string | null
     descriptionEs?: NullableStringFieldUpdateOperationsInput | string | null
     vendorStyle?: NullableStringFieldUpdateOperationsInput | string | null
     materialCode?: NullableStringFieldUpdateOperationsInput | string | null
@@ -334446,6 +337135,7 @@ export namespace Prisma {
   export type MatchingSetUncheckedUpdateWithoutSetTypeInput = {
     id?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
+    displayName?: NullableStringFieldUpdateOperationsInput | string | null
     descriptionEs?: NullableStringFieldUpdateOperationsInput | string | null
     vendorId?: NullableStringFieldUpdateOperationsInput | string | null
     vendorStyle?: NullableStringFieldUpdateOperationsInput | string | null
@@ -334471,6 +337161,7 @@ export namespace Prisma {
   export type MatchingSetUncheckedUpdateManyWithoutSetTypeInput = {
     id?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
+    displayName?: NullableStringFieldUpdateOperationsInput | string | null
     descriptionEs?: NullableStringFieldUpdateOperationsInput | string | null
     vendorId?: NullableStringFieldUpdateOperationsInput | string | null
     vendorStyle?: NullableStringFieldUpdateOperationsInput | string | null
@@ -340779,6 +343470,10 @@ export namespace Prisma {
      * @deprecated Use SkuActivityDefaultArgs instead
      */
     export type SkuActivityArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = SkuActivityDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use SkuReplacementDefaultArgs instead
+     */
+    export type SkuReplacementArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = SkuReplacementDefaultArgs<ExtArgs>
     /**
      * @deprecated Use SkuSizeDefaultArgs instead
      */
