@@ -81,7 +81,7 @@ app.use(cookieParser());
 const prisma = new PrismaClient();
 app.use(attachUser(prisma));
 
-const DEFAULT_RICS_REMOTE_IMAGE_BASE_URL = 'https://proc-scenes-filtering-danny.trycloudflare.com/RICSPICS';
+const DEFAULT_RICS_REMOTE_IMAGE_BASE_URL = 'https://race-mentioned-ebooks-echo.trycloudflare.com/';
 const RICS_REMOTE_IMAGE_BASE_URL = (process.env.RICS_IMAGE_BASE_URL?.trim() || DEFAULT_RICS_REMOTE_IMAGE_BASE_URL).replace(/\/+$/, '');
 const resolvedRicsImageUrls = new Map<string, { url: string | null; expiresAt: number }>();
 const RICS_IMAGE_RESOLUTION_TTL_MS = 10 * 60_000;
